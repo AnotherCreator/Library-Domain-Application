@@ -1,6 +1,6 @@
 # Josh Reginaldo - ITMD 415
-
-This lab helps us learn the basics of an MVC style approach using
+##Final Project Repo
+This project helps us learn the basics of an MVC style approach using
 JSP/Servlet, and to become familiar with these technologies in order to compare their use to later
 frameworks.
 
