@@ -3,9 +3,13 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Logger;
 
 @WebServlet(name = "DemoServlet", value = "/DemoServlet")
 public class DemoServlet extends HttpServlet {
+
+    private static final Logger LOG = Logger.getLogger(DemoServlet.class.getName());
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
