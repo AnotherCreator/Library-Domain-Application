@@ -20,6 +20,7 @@ public class CountryServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         LOG.info("CountryServlet.doPost");
 
+        // Get user input
         String countryCodeParam = request.getParameter("countryCode");
         String countryNameParam = request.getParameter("countryName");
         String countryCtntParam = request.getParameter("countryContinent");
@@ -30,15 +31,24 @@ public class CountryServlet extends HttpServlet {
         String govFormParam = request.getParameter("governmentForm");
         String countryCode2Param = request.getParameter("countryCode2");
 
-        // Che
+        // Check if number values are valid
+        Double surfaceArea = null;
+        if (surfAreaParam != null && !surfAreaParam.isBlank()) {
+            surfaceArea = Double.valueOf(surfAreaParam);
+        }
+        Integer population = null;
+        if (populationParam != null && !populationParam.isBlank()) {
+            population = Integer.valueOf(populationParam);
+        }
 
+        // Create object
         Country ctry = new Country();
         ctry.setCode(countryCodeParam);
         ctry.setName(countryNameParam);
         ctry.setContinent(countryCtntParam);
         ctry.setRegion(countryRgnParam);
-        ctry.setSurfaceArea(Double.valueOf(surfAreaParam));
-        ctry.setPopulation(Integer.valueOf(populationParam));
+        ctry.setSurfaceArea(surfaceArea);
+        ctry.setPopulation(population);
         ctry.setLocalName(localNameParam);
         ctry.setGovernmentForm(govFormParam);
         ctry.setCode2(countryCode2Param);
