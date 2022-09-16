@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="jeginaldo-fp-1.0-SNAPSHOT.war">
+    <root id="archive" name="jreginaldo-fp.war">
       <element id="artifact" artifact-name="jeginaldo-fp:war exploded" />
     </root>
   </artifact>

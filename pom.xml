@@ -5,9 +5,9 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>edu.iit.sat.itmd4515.uid</groupId>
-  <artifactId>jeginaldo-fp</artifactId>
+  <artifactId>jreginaldo-fp</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>jeginaldo-fp</name>
+  <name>jreginaldo-fp</name>
   <packaging>war</packaging>
 
   <properties>
@@ -39,6 +39,7 @@
   </dependencies>
 
   <build>
+    <finalName>jreginaldo-fp</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="jeginaldo-fp:war exploded">
-    <output-path>$PROJECT_DIR$/target/jeginaldo-fp-1.0-SNAPSHOT</output-path>
+    <output-path>$PROJECT_DIR$/target/jreginaldo-fp</output-path>
     <properties id="maven-jee-properties">
       <options>
         <exploded>true</exploded>
@@ -11,11 +11,11 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="jeginaldo-fp" />
+          <element id="module-output" name="jreginaldo-fp" />
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/jeginaldo-fp-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/target/jreginaldo-fp/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="jeginaldo-fp/web/Web" />
     </root>
