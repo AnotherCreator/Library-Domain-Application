@@ -21,33 +21,33 @@ public class Country {
         this.code2 = code2;
     }
 
-    @NotBlank
+    @NotBlank(message = "Country Code is Required")
     private String code;
 
-    @NotBlank
+    @NotBlank(message = "Country Name is Required")
     private String name;
 
-    @NotBlank
+    @NotBlank(message = "Country Continent is Required")
     private String continent;
 
-    @NotBlank
+    @NotBlank(message = "Country Region is Required")
     private String region;
 
-    @NotNull
-    @Positive
+    @NotNull(message = "Surface Area is Required")
+    @Positive(message = "Surface Area must be a Positive Value")
     private Double surfaceArea;
 
-    @NotNull
-    @Positive
+    @NotNull(message = "Population Count is Required")
+    @Positive(message = "Population Count must be a Positive Value")
     private Integer population;
 
-    @NotBlank
+    @NotBlank(message = "Local Name is Required")
     private String localName;
 
-    @NotBlank
+    @NotBlank(message = "Government Form is Required")
     private String governmentForm;
 
-    @NotBlank
+    @NotBlank(message = "Secondary Country Code is Required")
     private String code2;
 
     public String getCode() {
