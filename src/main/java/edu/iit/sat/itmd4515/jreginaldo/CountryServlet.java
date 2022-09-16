@@ -1,13 +1,21 @@
 package edu.iit.sat.itmd4515.jreginaldo;
 
+import javax.annotation.Resource;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validator;
+
 import java.io.IOException;
+import java.util.Set;
 import java.util.logging.Logger;
 
 @WebServlet(name = "CountryServlet", value = "/ctry")
 public class CountryServlet extends HttpServlet {
+
+    @Resource
+    Validator validator;
 
     private static final Logger LOG = Logger.getLogger(CountryServlet.class.getName());
 
@@ -41,7 +49,7 @@ public class CountryServlet extends HttpServlet {
             population = Integer.valueOf(populationParam);
         }
 
-        // Create object
+        // Create new object(s)
         Country ctry = new Country();
         ctry.setCode(countryCodeParam);
         ctry.setName(countryNameParam);
@@ -54,5 +62,13 @@ public class CountryServlet extends HttpServlet {
         ctry.setCode2(countryCode2Param);
 
         LOG.info(ctry.toString());
+
+        Set<ConstraintViolation<Country>> violations = validator.validate(ctry);
+
+        if (violations.size() > 0) {
+            for (ConstraintViolation<Country> violation : violations) {
+                LOG.info(violation.toString());
+            }
+        }
     }
 }
