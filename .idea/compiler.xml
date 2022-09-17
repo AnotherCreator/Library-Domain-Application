@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="jreginaldo-fp" />
+        <module name="jeginaldo-fp" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="jreginaldo-fp" target="11" />
+      <module name="jeginaldo-fp" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

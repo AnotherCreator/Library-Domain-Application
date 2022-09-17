@@ -69,6 +69,12 @@ public class CountryServlet extends HttpServlet {
             for (ConstraintViolation<Country> violation : violations) {
                 LOG.info(violation.toString());
             }
+        } else {
+            // "ctry" is the ID that will be used to pull out of request scope
+            // ctry is the input into the request scope
+            request.setAttribute("country", ctry);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/views/confirmation.jsp");
+            requestDispatcher.forward(request, response);
         }
     }
 }

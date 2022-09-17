@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="jreginaldo-fp:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>jreginaldo-fp</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="jeginaldo-fp-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="jreginaldo-fp:war exploded" />
+    </root>
+  </artifact>
+</component>
