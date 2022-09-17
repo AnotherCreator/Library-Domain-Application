@@ -22,6 +22,10 @@ public class CountryServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         LOG.info("CountryServlet.doGet");
+
+//        request.setAttribute("country", ctry);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/views/country.jsp");
+        requestDispatcher.forward(request, response);
     }
 
     @Override
@@ -65,11 +69,17 @@ public class CountryServlet extends HttpServlet {
 
         Set<ConstraintViolation<Country>> violations = validator.validate(ctry);
 
-        if (violations.size() > 0) {
+        if (violations.size() > 0) { // If violations exist, send user back to form page and display errors
             for (ConstraintViolation<Country> violation : violations) {
                 LOG.info(violation.toString());
             }
-        } else {
+
+            request.setAttribute("errors", violations);
+            request.setAttribute("country", ctry);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/views/country.jsp");
+            requestDispatcher.forward(request, response);
+
+        } else { // If no violations, send user to confirmation page displaying the final information
             // "ctry" is the ID that will be used to pull out of request scope
             // ctry is the input into the request scope
             request.setAttribute("country", ctry);
