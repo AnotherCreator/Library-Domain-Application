@@ -18,7 +18,9 @@
     <c:if test="${not empty requestScope.errors}">
       <p>Please fix these errors before proceeding</p>
       <ol>
-
+        <c:forEach items="${requestScope.errors}" var="error">
+          <li>${error.propertyPath} has an issue. Please fix: ${error.message}</li>
+        </c:forEach>
       </ol>
     </c:if>
 
