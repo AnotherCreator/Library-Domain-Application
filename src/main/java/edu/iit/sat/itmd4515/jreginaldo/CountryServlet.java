@@ -45,12 +45,18 @@ public class CountryServlet extends HttpServlet {
 
         // Check if number values are valid
         Double surfaceArea = null;
-        if (surfAreaParam != null && !surfAreaParam.isBlank()) {
-            surfaceArea = Double.valueOf(surfAreaParam);
+        try {
+            if (surfAreaParam != null && !surfAreaParam.isBlank()) {
+                surfaceArea = Double.valueOf(surfAreaParam);
+            }
+        } catch (NumberFormatException ignored) {
         }
         Integer population = null;
-        if (populationParam != null && !populationParam.isBlank()) {
-            population = Integer.valueOf(populationParam);
+        try {
+            if (populationParam != null && !populationParam.isBlank()) {
+                population = Integer.valueOf(populationParam);
+            }
+        } catch (NumberFormatException ignored) {
         }
 
         // Create new object(s)
