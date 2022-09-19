@@ -5,6 +5,7 @@
   Time: 8:44 AM
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8"%>
 <html>
   <head>
@@ -13,6 +14,14 @@
 
   <body>
     <h1>Add a new country!</h1>
+
+    <c:if test="${not empty requestScope.errors}">
+      <p>Please fix these errors before proceeding</p>
+      <ol>
+
+      </ol>
+    </c:if>
+
     <form method="post" action="${pageContext.request.contextPath}/ctry">
       <div>
         <label for="countryCode">Country Code</label>
