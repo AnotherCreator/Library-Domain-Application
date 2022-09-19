@@ -21,5 +21,12 @@ __How do you think this approach would scale to a real application with 100's of
 entities?__
 
 __Why didn't we need to include any additional dependencies (i.e. Bean Validation,
-JDBC) in this project?__  
-      
+JDBC) in this project?__
+
+### Screenshot Validation:
+__User passing input validation__
+![img.png](assets/images/img.png)
+![img_1.png](assets/images/img_1.png)
+__User failing input validation__
+![img_2.png](assets/images/img_2.png)
+![img_3.png](assets/images/img_3.png)
