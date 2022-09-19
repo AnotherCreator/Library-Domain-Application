@@ -38,13 +38,13 @@
       <div>
         <label for="countryContinent">Country Continent</label>
         <select id="countryContinent" name="countryContinent">
-          <option value="asia">Asia</option>
-          <option value="europe">Europe</option>
-          <option value="northAmerica">North America</option>
-          <option value="africa">Africa</option>
-          <option value="oceania">Oceania</option>
-          <option value="antarctica">Antarctica</option>
-          <option value="southAmerica">South America</option>
+          <option value="Asia">Asia</option>
+          <option value="Europe">Europe</option>
+          <option value="North America">North America</option>
+          <option value="Africa">Africa</option>
+          <option value="Oceania">Oceania</option>
+          <option value="Antarctica">Antarctica</option>
+          <option value="South America">South America</option>
         </select>
       </div>
       <div>
