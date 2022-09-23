@@ -1,16 +1,30 @@
 # Josh Reginaldo - ITMD 415
-## Final Project Repo
-This project helps us learn the basics of an MVC style approach using
-JSP/Servlet, and to become familiar with these technologies in order to compare their use to later
-frameworks.
 
+# Table of Contents:
+- [Technology Used](#technology-used)
+- [Documentation](#documentation)
+  - [Lab 3](#lab-3)
+  - [Lab 4](#lab-4)
+
+# Final Project Repo
 This repo will be used for the current "Lab 3" assignment until the end of the semester.  
-Commits will be prefixed with the appropriate title (e.g. [Lab 3]) to help distinguish between assignments
-## Technology Used:
+Commits will be prefixed with the appropriate title (e.g. [Lab 3]) to help distinguish between assignments.
+
+# Technology Used:
 - OpenJDK 11 ([Temurin 11.0.16.1+1](https://adoptium.net/temurin/releases/?version=11))
 - Payara Server Community ([Payara Server 5.2022.3](https://www.payara.fish/downloads/payara-platform-community-edition/))
 - MySQL Community Server ([MySQL 8.0.30](https://dev.mysql.com/downloads/mysql/))
-## Documentation:
+
+# Documentation:
+## Lab 4:  
+The purpose of this assignment is to learn the basics of ORM and EntityManager operations,
+demonstrate through JUnit test cases, and to begin the design process for your final project.
+
+## Lab 3:  
+This lab helps us learn the basics of an MVC style approach using
+JSP/Servlet, and to become familiar with these technologies in order to compare their use to later
+frameworks.
+
 ### Questions:
 __Difference between the forward and redirect operations:__  
 A "forward" is when a servlet requests for another resource, usually another jsp or html page, and transfers control over
