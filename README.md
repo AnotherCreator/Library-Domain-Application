@@ -28,7 +28,7 @@ in the computer lab, I do sometimes help customers finding books by using the li
 __Possible Entities__:
 - Non-Library Cardholder
 - Library Cardholder
-  - Resident Cardholder (User who lives within the city bounds)
+  - Resident Cardholder (User who lives within library city bounds)
     - Full access to library functions
   - Staff Cardholder
     - Full access to library functions regardless of home city
