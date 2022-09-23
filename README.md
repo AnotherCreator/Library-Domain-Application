@@ -18,7 +18,28 @@ Commits will be prefixed with the appropriate title (e.g. [Lab 3]) to help disti
 # Documentation:
 ## Lab 4:  
 The purpose of this assignment is to learn the basics of ORM and EntityManager operations,
-demonstrate through JUnit test cases, and to begin the design process for your final project.
+demonstrate through JUnit test cases, and to begin the design process for your final project.  
+
+__Business Domain__: Library 
+
+__Reason__: I have chosen a library domain because I am currently working in one at the moment. Although I am working
+in the computer lab, I do sometimes help customers finding books by using the library's database.  
+
+__Possible Entities__:
+- Non-Library Cardholder
+- Library Cardholder
+  - Resident Cardholder (User who lives within the city bounds)
+    - Full access to library functions
+  - Staff Cardholder
+    - Full access to library functions regardless of home city
+  - Reciprocal Cardholder (User who has a valid library card from another city)
+    - Limited access to library functions
+- Library Partners (Organizations, businesses, individuals)
+- Library Board
+- Library Manager
+- Department Manager
+- Department Supervisor
+- Employee
 
 ## Lab 3:  
 This lab helps us learn the basics of an MVC style approach using
