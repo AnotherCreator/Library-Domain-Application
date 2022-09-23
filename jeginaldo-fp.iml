@@ -38,9 +38,9 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: jakarta.platform:jakarta.jakartaee-api:${jakartaee}" level="project" />
-    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.28" level="project" />
-    <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.11.4" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: jakarta.platform:jakarta.jakartaee-api:9.1.0" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.30" level="project" />
+    <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.19.4" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax:javaee-web-api:8.0.1" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:jstl:1.2" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.persistence:org.eclipse.persistence.jpa:2.7.10" level="project" />
