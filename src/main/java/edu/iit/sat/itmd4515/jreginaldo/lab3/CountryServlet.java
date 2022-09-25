@@ -1,4 +1,4 @@
-package edu.iit.sat.itmd4515.jreginaldo;
+package edu.iit.sat.itmd4515.jreginaldo.lab3;
 
 import javax.annotation.Resource;
 import javax.servlet.*;
