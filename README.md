@@ -23,7 +23,7 @@ demonstrate through JUnit test cases, and to begin the design process for your f
 __Business Domain__: Library 
 
 __Reason__: I have chosen a library domain because I am currently working in one at the moment. Although I am working
-in the computer lab, I do sometimes help customers finding books by using the library's database.  
+in the computer lab, I do sometimes help customers find books by using the library's database.  
 
 __Possible Entities__:
 - Non-Library Cardholder
