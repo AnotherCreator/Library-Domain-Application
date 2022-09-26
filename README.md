@@ -51,6 +51,7 @@ Since database connectivity wasn't necessarily required for [Lab 3], there was n
 ### User failing input validation
 ![img_2.png](assets/images/img_2.png)
 ![img_3.png](assets/images/img_3.png)
+[Jump to top](#table-of-contents)
 
 ## Lab 4:  
 The purpose of this assignment is to learn the basics of ORM and EntityManager operations,
@@ -78,6 +79,8 @@ __Possible Entities__:
 - Department Supervisor
 - Employee
 
+[Jump to top](#table-of-contents)
+
 ### Test Cases:  
 __Create__:  
 
@@ -85,15 +88,38 @@ __Read__:
 ```java
 @Test
 public void readTest() {
-        Library readTest = em.createQuery(
-        "SELECT l FROM Library l WHERE l.name = 'libraryTest'", Library.class).getSingleResult();
-
-        assertEquals("libraryTest", readTest.getName());
-        }
+    Library readTest = em.createQuery(
+    "SELECT l FROM Library l WHERE l.name = 'libraryTest'", Library.class).getSingleResult();
+    
+    assertEquals("libraryTest", readTest.getName());
+}
 ```
 Read from database to see if the newly created library object (initialized in @BeforeEach) was successfully inserted.  
 
 __Update__:  
+```java
+@Test
+public void updateTest() {
+    Library updateTest = em.createQuery(
+            "SELECT l FROM Library l WHERE l.name = 'libraryTest'", Library.class).getSingleResult();
+
+    // Begin update sequence
+    tx.begin();
+    updateTest.setStreetAdd("libraryUpdate");
+    updateTest.setPhoneNum("321-321-4321");
+    updateTest.setEstablished(LocalDate.of(2022, Month.SEPTEMBER, 1));
+    tx.commit();
+
+    // Find newly updated row
+    Library compareTest = em.find(Library.class, updateTest.getId());
+
+    // Check if updated successfully
+    assertEquals("libraryUpdate", compareTest.getStreetAdd());
+    assertEquals("321-321-4321", compareTest.getPhoneNum());
+    assertEquals(LocalDate.of(2022, Month.SEPTEMBER, 1), compareTest.getEstablished());
+}
+```
+From initialized library object, attempt to update fields and check if it successfully went through
 
 __Delete__:  
 
