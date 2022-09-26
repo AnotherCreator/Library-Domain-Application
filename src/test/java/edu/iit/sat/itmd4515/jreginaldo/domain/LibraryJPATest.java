@@ -1,7 +1,7 @@
 package edu.iit.sat.itmd4515.jreginaldo.domain;
 
 import org.junit.jupiter.api.*;
-
+import static org.junit.jupiter.api.Assertions.*;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -38,12 +38,24 @@ public class LibraryJPATest {
 
     @Test
     public void readTest() {
+        Library readTest = em.createQuery(
+                "SELECT l FROM Library l WHERE l.name = 'libraryTest'", Library.class).getSingleResult();
 
+        assertEquals("libraryTest", readTest.getName());
     }
 
     @Test
     public void updateTest() {
+        Library updateTest = em.createQuery(
+                "SELECT l FROM Library l WHERE l.name = 'libraryTest'", Library.class).getSingleResult();
 
+        tx.begin();
+        updateTest.setStreetAdd("libraryUpdate");
+        tx.commit();
+
+        Library compareTest = em.find(Library.class, updateTest.getId());
+
+        assertEquals("libraryUpdate", compareTest.getStreetAdd());
     }
 
     @Test
