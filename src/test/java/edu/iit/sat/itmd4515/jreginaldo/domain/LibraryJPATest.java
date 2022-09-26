@@ -7,6 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.logging.Logger;
 
 public class LibraryJPATest {
@@ -53,6 +54,7 @@ public class LibraryJPATest {
         tx.begin();
         updateTest.setStreetAdd("libraryUpdate");
         updateTest.setPhoneNum("321-321-4321");
+        updateTest.setEstablished(LocalDate.of(2022, Month.SEPTEMBER, 1));
         tx.commit();
 
         // Find newly updated row
@@ -61,7 +63,7 @@ public class LibraryJPATest {
         // Check if updated successfully
         assertEquals("libraryUpdate", compareTest.getStreetAdd());
         assertEquals("321-321-4321", compareTest.getPhoneNum());
-
+        assertEquals(LocalDate.of(2022, Month.SEPTEMBER, 1), compareTest.getEstablished());
     }
 
     @Test
