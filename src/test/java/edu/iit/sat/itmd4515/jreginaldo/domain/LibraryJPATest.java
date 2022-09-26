@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.time.LocalDate;
 import java.util.logging.Logger;
 
 public class LibraryJPATest {
@@ -23,6 +24,11 @@ public class LibraryJPATest {
     public void beforeEach() {
         em = emf.createEntityManager();
         tx = em.getTransaction();
+
+        Library libraryTest = new Library("TestName", "TestAddress", "123-123-1234", LocalDate.now());
+        tx.begin();
+        em.persist(libraryTest);
+        tx.commit();
     }
 
     @Test
@@ -47,7 +53,13 @@ public class LibraryJPATest {
 
     @AfterEach
     public void afterEach() {
+        Library deleteTest = em.createQuery(
+                "SELECT l FROM Library l WHERE l.name = 'libraryTest'", Library.class).getSingleResult();
 
+        tx.begin();
+        em.remove(deleteTest);
+        tx.commit();
+        em.close();
     }
 
     @AfterAll
