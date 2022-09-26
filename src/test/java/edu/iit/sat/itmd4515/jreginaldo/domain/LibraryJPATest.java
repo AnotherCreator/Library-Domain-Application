@@ -68,7 +68,25 @@ public class LibraryJPATest {
 
     @Test
     public void deleteTest() {
+        Library deleteTest = new Library("deleteTest", "TestAddress", "123-123-1234", LocalDate.now());
 
+        // Begin insertion sequence
+        tx.begin();
+        em.persist(deleteTest);
+        tx.commit();
+
+        // Make sure row was successfully inserted
+        assertNotNull(deleteTest.getId());
+
+        // Begin deletion sequence
+        tx.begin();
+        em.remove(deleteTest);
+        tx.commit();
+
+        // Attempt to read deleted object
+        Library deleteCheck = em.find(Library.class, deleteTest.getId());
+
+        assertNull(deleteCheck);
     }
 
     @AfterEach
