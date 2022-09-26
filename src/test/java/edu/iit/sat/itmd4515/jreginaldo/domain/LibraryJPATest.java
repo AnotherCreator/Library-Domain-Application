@@ -27,6 +27,8 @@ public class LibraryJPATest {
         tx = em.getTransaction();
 
         Library libraryTest = new Library("libraryTest", "TestAddress", "123-123-1234", LocalDate.now());
+
+        // Begin insertion sequence
         tx.begin();
         em.persist(libraryTest);
         tx.commit();
@@ -34,7 +36,24 @@ public class LibraryJPATest {
 
     @Test
     public void createTest() {
+        Library createTest = new Library("createTest", "TestAddress", "123-123-1234", LocalDate.now());
 
+        // Begin insertion sequence
+        tx.begin();
+        em.persist(createTest);
+        tx.commit();
+
+        // Make sure row was successfully inserted
+        assertNotNull(createTest.getId());
+
+        // Find newly updated row
+        Library compareTest = em.find(Library.class, createTest.getId());
+        assertEquals(compareTest.getPhoneNum(), createTest.getPhoneNum());
+
+        // Begin cleanup sequence
+        tx.begin();
+        em.remove(createTest);
+        tx.commit();
     }
 
     @Test
@@ -94,6 +113,7 @@ public class LibraryJPATest {
         Library deleteTest = em.createQuery(
                 "SELECT l FROM Library l WHERE l.name = 'libraryTest'", Library.class).getSingleResult();
 
+        // Begin deletion sequence
         tx.begin();
         em.remove(deleteTest);
         tx.commit();
