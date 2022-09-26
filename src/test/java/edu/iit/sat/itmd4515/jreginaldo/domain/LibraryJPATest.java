@@ -25,7 +25,7 @@ public class LibraryJPATest {
         em = emf.createEntityManager();
         tx = em.getTransaction();
 
-        Library libraryTest = new Library("TestName", "TestAddress", "123-123-1234", LocalDate.now());
+        Library libraryTest = new Library("libraryTest", "TestAddress", "123-123-1234", LocalDate.now());
         tx.begin();
         em.persist(libraryTest);
         tx.commit();
