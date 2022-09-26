@@ -55,7 +55,7 @@ Since database connectivity wasn't necessarily required for [Lab 3], there was n
 
 ## Lab 4:  
 The purpose of this assignment is to learn the basics of ORM and EntityManager operations,
-demonstrate through JUnit test cases, and to begin the design process for your final project.  
+demonstrate through JUnit test cases, and to begin the design process for our final project.  
 
 ### Domain:  
 __Business Domain__: Library 
