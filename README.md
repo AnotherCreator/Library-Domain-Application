@@ -5,6 +5,8 @@
 - [Documentation](#documentation)
   - [Lab 3](#lab-3)
   - [Lab 4](#lab-4)
+    - [Domain](#domain)
+    - [Test Cases](#test-cases)
 
 # Final Project Repo
 This repo will be used for the current "Lab 3" assignment until the end of the semester.  
@@ -20,6 +22,7 @@ Commits will be prefixed with the appropriate title (e.g. [Lab 3]) to help disti
 The purpose of this assignment is to learn the basics of ORM and EntityManager operations,
 demonstrate through JUnit test cases, and to begin the design process for your final project.  
 
+### Domain:  
 __Business Domain__: Library 
 
 __Reason__: I have chosen a library domain because I am currently working in one at the moment. Although I am working
@@ -40,6 +43,25 @@ __Possible Entities__:
 - Department Manager
 - Department Supervisor
 - Employee
+
+### Test Cases:  
+__Create__:  
+
+__Read__:  
+```java
+@Test
+public void readTest() {
+        Library readTest = em.createQuery(
+        "SELECT l FROM Library l WHERE l.name = 'libraryTest'", Library.class).getSingleResult();
+
+        assertEquals("libraryTest", readTest.getName());
+        }
+```
+Read from database to see if the newly created library object (initialized in @BeforeEach) was successfully inserted.  
+
+__Update__:  
+
+__Delete__:  
 
 ## Lab 3:  
 This lab helps us learn the basics of an MVC style approach using
