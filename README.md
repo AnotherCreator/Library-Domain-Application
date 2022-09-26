@@ -83,6 +83,31 @@ __Possible Entities__:
 
 ### Test Cases:  
 __Create__:  
+```java
+@Test
+public void createTest() {
+    Library createTest = new Library("createTest", "TestAddress", "123-123-1234", LocalDate.now());
+
+    // Begin insertion sequence
+    tx.begin();
+    em.persist(createTest);
+    tx.commit();
+
+    // Make sure row was successfully inserted
+    assertNotNull(createTest.getId());
+
+    // Find newly updated row
+    Library compareTest = em.find(Library.class, createTest.getId());
+    assertEquals(compareTest.getPhoneNum(), createTest.getPhoneNum());
+
+    // Begin cleanup sequence
+    tx.begin();
+    em.remove(createTest);
+    tx.commit();
+}
+```  
+Testing to see if a test object is being successfully created and inserted as a new row into the database. If successful,
+cleanup the test data afterwards.
 
 __Read__:  
 ```java
@@ -122,4 +147,30 @@ public void updateTest() {
 From initialized library object, attempt to update fields and check if it successfully went through
 
 __Delete__:  
+```java
+@Test
+public void deleteTest() {
+    Library deleteTest = new Library("deleteTest", "TestAddress", "123-123-1234", LocalDate.now());
+
+    // Begin insertion sequence
+    tx.begin();
+    em.persist(deleteTest);
+    tx.commit();
+
+    // Make sure row was successfully inserted
+    assertNotNull(deleteTest.getId());
+
+    // Begin deletion sequence
+    tx.begin();
+    em.remove(deleteTest);
+    tx.commit();
+
+    // Attempt to read deleted object
+    Library deleteCheck = em.find(Library.class, deleteTest.getId());
+
+    assertNull(deleteCheck);
+}
+```  
+Create a new library object and go through the steps of inserting into the database. Once inserted, delete the new row
+and attempt to read the data into another library object. Check if the new object successfully returns a "Null" value.
 
