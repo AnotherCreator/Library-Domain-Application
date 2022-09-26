@@ -49,13 +49,19 @@ public class LibraryJPATest {
         Library updateTest = em.createQuery(
                 "SELECT l FROM Library l WHERE l.name = 'libraryTest'", Library.class).getSingleResult();
 
+        // Begin update sequence
         tx.begin();
         updateTest.setStreetAdd("libraryUpdate");
+        updateTest.setPhoneNum("321-321-4321");
         tx.commit();
 
+        // Find newly updated row
         Library compareTest = em.find(Library.class, updateTest.getId());
 
+        // Check if updated successfully
         assertEquals("libraryUpdate", compareTest.getStreetAdd());
+        assertEquals("321-321-4321", compareTest.getPhoneNum());
+
     }
 
     @Test
