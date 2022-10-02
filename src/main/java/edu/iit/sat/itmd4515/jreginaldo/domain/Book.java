@@ -1,12 +1,10 @@
 package edu.iit.sat.itmd4515.jreginaldo.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -19,11 +17,33 @@ public class Book {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long barcode;
+
+    @NotBlank
+    @Size(min = 13, max = 13)
+    @Column(name = "isbn")
     private String ISBN;
+
+    @NotBlank
+    @Size(min = 2, max = 255)
+    @Column(name = "title")
     private String title;
+
+    @NotBlank
+    @Size(min = 2, max = 255)
+    @Column(name = "author")
     private String author;
+
+    @NotBlank
+    @Size(min = 2, max = 255)
+    @Column(name = "published_by")
     private String publishedBy;
+
+    @NotBlank
+    @Size(min = 2, max = 255)
+    @Column(name = "genre")
     private String genre;
+
+    @PastOrPresent
     private LocalDate publishedDate;
 
     public Long getBarcode() {

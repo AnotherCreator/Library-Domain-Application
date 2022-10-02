@@ -1,12 +1,7 @@
 package edu.iit.sat.itmd4515.jreginaldo.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
+import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -19,9 +14,21 @@ public class Employee {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
+
+    @NotBlank
+    @Size(min = 2, max = 255)
+    @Column(name = "position")
     private String position;
+
+    @NotBlank
+    @Size(min = 2, max = 255)
+    @Column(name = "department")
     private String department;
+
+    @FutureOrPresent // Employee can start same day or have a future start date
     private LocalDate started; // Date employee started working
+
+    @FutureOrPresent
     private LocalDate ended; // Date employee stopped working
 
     public Long getID() {

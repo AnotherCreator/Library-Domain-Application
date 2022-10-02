@@ -1,12 +1,10 @@
 package edu.iit.sat.itmd4515.jreginaldo.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -20,8 +18,18 @@ public class Author {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
 
+    @NotBlank
+    @Size(min = 2, max = 255)
+    @Column(name = "first_name")
     private String firstName;
+
+    @NotBlank
+    @Size(min = 2, max = 255)
+    @Column(name = "last_name")
     private String lastName;
+
+    @PastOrPresent
+    @Column(name = "date_of_birth")
     private LocalDate DOB; // Date of Birth
 
     public Long getID() {

@@ -4,23 +4,32 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
-public class Order {
+public class Checkout {
 
-    public Order() {
+    public Checkout() {
 
     }
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
+
+    // A member can place a now or be in a wait-list
+    @PastOrPresent
     private LocalDate reservationDate;
+
+    // A member can check out a book now or pick it up later / reach their wait list position
+    @FutureOrPresent
     private LocalDate checkOutDate;
+
+    // The return date will always be in the future
+    @Future
     private LocalDate returnDate;
 
     public Long getID() {
@@ -59,11 +68,11 @@ public class Order {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Order order = (Order) o;
-        if ((this.ID == null || order.ID == null)) {
+        Checkout checkout = (Checkout) o;
+        if ((this.ID == null || checkout.ID == null)) {
             return false;
         }
-        return ID.equals(order.ID);
+        return ID.equals(checkout.ID);
     }
 
     @Override
