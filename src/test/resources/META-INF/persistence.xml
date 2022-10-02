@@ -8,7 +8,8 @@
     <class>edu.iit.sat.itmd4515.jreginaldo.domain.Book</class>
     <class>edu.iit.sat.itmd4515.jreginaldo.domain.Employee</class>
     <class>edu.iit.sat.itmd4515.jreginaldo.domain.Member</class>
-    <class>edu.iit.sat.itmd4515.jreginaldo.domain.Order</class>
+    <class>edu.iit.sat.itmd4515.jreginaldo.domain.Checkout</class>
+    <class>edu.iit.sat.itmd4515.jreginaldo.domain.Library</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/itmd4515?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
