@@ -26,9 +26,11 @@ public class Employee {
     private String department;
 
     @FutureOrPresent // Employee can start same day or have a future start date
+    @Column(name = "started")
     private LocalDate started; // Date employee started working
 
     @FutureOrPresent
+    @Column(name = "ended")
     private LocalDate ended; // Date employee stopped working
 
     public Long getID() {

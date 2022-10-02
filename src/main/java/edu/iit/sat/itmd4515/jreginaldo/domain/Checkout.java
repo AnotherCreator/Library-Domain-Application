@@ -1,9 +1,6 @@
 package edu.iit.sat.itmd4515.jreginaldo.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.PastOrPresent;
@@ -22,14 +19,17 @@ public class Checkout {
 
     // A member can place a now or be in a wait-list
     @PastOrPresent
+    @Column(name = "reservation_date")
     private LocalDate reservationDate;
 
     // A member can check out a book now or pick it up later / reach their wait list position
     @FutureOrPresent
+    @Column(name = "checkout_date")
     private LocalDate checkOutDate;
 
     // The return date will always be in the future
     @Future
+    @Column(name = "return_date")
     private LocalDate returnDate;
 
     public Long getID() {

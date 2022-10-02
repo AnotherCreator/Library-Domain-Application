@@ -38,7 +38,6 @@ public class Member {
     @Column(name = "address")
     private String address;
 
-
     // 0 -- Local Resident Card Holder
     // 1 -- Non Local Resident Card Holder
     // 2 -- Staff Card Holder
