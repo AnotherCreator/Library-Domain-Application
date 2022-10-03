@@ -21,6 +21,7 @@
         <setting name="provider-name" value="EclipseLink" />
         <datasource-mapping>
           <factory-entry name="default" />
+          <factory-entry name="itmd4515PU" value="2894f307-e177-406b-8f36-c224e61f1545" />
           <factory-entry name="itmd4515testPU" value="2894f307-e177-406b-8f36-c224e61f1545" />
           <factory-entry name="jeginaldo-fp" />
         </datasource-mapping>
