@@ -55,6 +55,30 @@ public class MemberRelationshipTest extends AbstractJPATest{
 
     @Test
     public void oneToOneUniDirectionalMemberToEmployeeRelationTest() {
+        /*
+        Not every member will be an employee but every employee with automatically be a member
+        1:1 Relationship (Uni-Directional)
+        Member --> Employee
+        */
+        Member member = new Member("Water", "Man", "111-111-1111", "111 Ocean Drive",
+                0, 0);
 
+        Employee employee = new Employee("Lifeguard", "Atlantic",
+                LocalDate.of(2022, Month.NOVEMBER, 1),
+                LocalDate.of(2022, Month.DECEMBER, 31));
+
+        employee.setMember(member);
+        member.setEmployee(employee);
+
+        // Begin insertion sequence
+        tx.begin();
+        // Add entities to be added
+        em.persist(member);
+        em.persist(employee);
+        // End
+        tx.commit();
+
+        // Assertions
+        assertSame(member.getEmployee(), employee);
     }
 }
