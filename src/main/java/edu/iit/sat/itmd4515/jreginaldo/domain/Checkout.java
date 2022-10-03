@@ -5,6 +5,8 @@ import javax.validation.constraints.Future;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -14,6 +16,40 @@ public class Checkout {
 
     }
 
+    public Checkout(Long ID, LocalDate reservationDate, LocalDate checkOutDate, LocalDate returnDate) {
+        this.ID = ID;
+        this.reservationDate = reservationDate;
+        this.checkOutDate = checkOutDate;
+        this.returnDate = returnDate;
+    }
+
+    /*
+            ========== RELATIONSHIPS ==========
+     */
+    /*
+        A checkout can have many books for order
+        N:M Relationship bi-directional
+        Checkout (Owner) <--> Book (Owned)
+     */
+    @ManyToMany
+    @JoinTable(
+            name = "books_for_checkout",
+            joinColumns = @JoinColumn(name = "checkout_id"),
+            inverseJoinColumns = @JoinColumn(name = "book_id")
+    )
+    private List<Book> booksForCheckOut = new ArrayList<>();
+
+    /*
+        Multiple checkouts can belong to a singular member
+        N:1 relationship (Bi-directional)
+        Member(Owned) <--> Checkout(Owner)
+     */
+    @ManyToOne
+    private Member member;
+
+    /*
+        ========== OBJECT RELATED VARIABLES ==========
+     */
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
 
@@ -32,6 +68,9 @@ public class Checkout {
     @Column(name = "return_date")
     private LocalDate returnDate;
 
+    /*
+            ========== GETTER / SETTER ==========
+     */
     public Long getID() {
         return ID;
     }
@@ -64,6 +103,25 @@ public class Checkout {
         this.returnDate = returnDate;
     }
 
+    public List<Book> getBooksForCheckOut() {
+        return booksForCheckOut;
+    }
+
+    public void setBooksForCheckOut(List<Book> booksForCheckOut) {
+        this.booksForCheckOut = booksForCheckOut;
+    }
+
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
+
+    /*
+                ========== @OVERRIDES ==========
+         */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -78,5 +136,16 @@ public class Checkout {
     @Override
     public int hashCode() {
         return Objects.hash(ID);
+    }
+
+    @Override
+    public String toString() {
+        return "Checkout{" +
+                "booksForCheckOut=" + booksForCheckOut +
+                ", ID=" + ID +
+                ", reservationDate=" + reservationDate +
+                ", checkOutDate=" + checkOutDate +
+                ", returnDate=" + returnDate +
+                '}';
     }
 }
