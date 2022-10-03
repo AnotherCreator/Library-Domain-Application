@@ -45,7 +45,7 @@ public class Book {
 
     /*
         Many books can be reserved by many people
-        N:M Relationship bi-directional
+        N:M Relationship (Bi-directional)
         Checkout (Owner) <--> Book (Owned)
      */
     @ManyToMany(mappedBy = "booksForCheckOut")
