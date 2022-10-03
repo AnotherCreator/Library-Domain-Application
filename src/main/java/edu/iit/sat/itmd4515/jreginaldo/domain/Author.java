@@ -13,13 +13,34 @@ import java.util.Objects;
 @Entity
 public class Author {
 
+    /*
+            ========== CONSTRUCTORS ==========
+     */
     public Author() {
 
     }
 
-    @OneToMany(mappedBy = "author") // An author can have many books 1:N
+    public Author(Long ID, String firstName, String lastName, LocalDate DOB) {
+        this.ID = ID;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.DOB = DOB;
+    }
+
+    /*
+            ========== RELATIONSHIPS ==========
+     */
+    /*
+        A singular author can write many books
+        1:N Relationship
+        Book(Owner) <--> Author (Owned)
+     */
+    @OneToMany(mappedBy = "author")
     private List<Book> bookSet = new ArrayList<>();
 
+    /*
+        ========== OBJECT RELATED VARIABLES ==========
+     */
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
 
@@ -37,6 +58,9 @@ public class Author {
     @Column(name = "date_of_birth")
     private LocalDate DOB; // Date of Birth
 
+    /*
+        ========== GETTER / SETTER ==========
+     */
     public Long getID() {
         return ID;
     }
@@ -69,15 +93,17 @@ public class Author {
         this.DOB = DOB;
     }
 
-    @Override
-    public String toString() {
-        return "Author{" +
-                "ID=" + ID +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
+    public List<Book> getBookSet() {
+        return bookSet;
     }
 
+    public void setBookSet(List<Book> bookSet) {
+        this.bookSet = bookSet;
+    }
+
+    /*
+            ========== @OVERRIDES ==========
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -92,5 +118,15 @@ public class Author {
     @Override
     public int hashCode() {
         return Objects.hash(ID);
+    }
+
+    @Override
+    public String toString() {
+        return "Author{" +
+                "ID=" + ID +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", DOB=" + DOB +
+                '}';
     }
 }
