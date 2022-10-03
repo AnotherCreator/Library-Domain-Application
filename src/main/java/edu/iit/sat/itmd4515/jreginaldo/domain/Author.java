@@ -32,8 +32,8 @@ public class Author {
      */
     /*
         A singular author can write many books
-        1:N Relationship
-        Book(Owner) <--> Author (Owned)
+        1:N Relationship (Bi-directional)
+        Book(Owner) <--> Author(Owned)
      */
     @OneToMany(mappedBy = "author")
     private List<Book> bookSet = new ArrayList<>();
