@@ -5,13 +5,42 @@ import javax.validation.constraints.*;
 import java.time.LocalDate;
 import java.util.Objects;
 
+// Entity will be uni-directional with 'Member'
+// 'Employee' will be able to get 'Member' data
+// 'Member' will not be able to see 'Employee' data
+
 @Entity
 public class Employee {
 
+    /*
+            ========== CONSTRUCTORS ==========
+     */
     public Employee() {
 
     }
 
+    public Employee(Long ID, String position, String department, LocalDate started, LocalDate ended) {
+        this.ID = ID;
+        this.position = position;
+        this.department = department;
+        this.started = started;
+        this.ended = ended;
+    }
+
+    /*
+            ========== RELATIONSHIPS ==========
+     */
+    /*
+        Not every member will be an employee but every employee with automatically be a member
+        1:1 Relationship (Uni-Directional)
+        Member --> Employee
+     */
+    @OneToOne(cascade = CascadeType.ALL)
+    private Member member;
+
+    /*
+        ========== OBJECT RELATED VARIABLES ==========
+     */
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
 
@@ -33,6 +62,9 @@ public class Employee {
     @Column(name = "ended")
     private LocalDate ended; // Date employee stopped working
 
+    /*
+        ========== GETTER / SETTER ==========
+     */
     public Long getID() {
         return ID;
     }
@@ -73,6 +105,17 @@ public class Employee {
         this.ended = ended;
     }
 
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
+
+    /*
+                    ========== @OVERRIDES ==========
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -87,5 +130,16 @@ public class Employee {
     @Override
     public int hashCode() {
         return Objects.hash(ID);
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "ID=" + ID +
+                ", position='" + position + '\'' +
+                ", department='" + department + '\'' +
+                ", started=" + started +
+                ", ended=" + ended +
+                '}';
     }
 }

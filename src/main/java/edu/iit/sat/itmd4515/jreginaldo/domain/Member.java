@@ -6,15 +6,53 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
 public class Member {
 
+    /*
+            ========== CONSTRUCTORS ==========
+     */
     public Member() {
 
     }
 
+    public Member(Long ID, String firstName, String lastName, String phone, String address, int memberType,
+                  int isExpired) {
+        this.ID = ID;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phone = phone;
+        this.address = address;
+        this.memberType = memberType;
+        this.isExpired = isExpired;
+    }
+
+    /*
+            ========== RELATIONSHIPS ==========
+     */
+    /*
+        A singular member can have many checkouts at once
+        1:N relationship (Bi-directional)
+        Member(Owned) <--> Checkout(Owner)
+     */
+    @OneToMany(mappedBy = "member")
+    private List<Checkout> checkoutSet = new ArrayList<>();
+
+    /*
+        Not every member will be an employee but every employee with automatically be a member
+        1:1 Relationship (Uni-Directional)
+        Member --> Employee
+     */
+    @OneToOne(cascade = CascadeType.ALL)
+    private Employee employee;
+
+    /*
+        ========== OBJECT RELATED VARIABLES ==========
+     */
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
 
@@ -53,6 +91,9 @@ public class Member {
     @Column(name = "expired")
     private int isExpired;
 
+    /*
+        ========== GETTER / SETTER ==========
+     */
     public Long getID() {
         return ID;
     }
@@ -109,6 +150,25 @@ public class Member {
         this.isExpired = isExpired;
     }
 
+    public List<Checkout> getCheckoutSet() {
+        return checkoutSet;
+    }
+
+    public void setCheckoutSet(List<Checkout> checkoutSet) {
+        this.checkoutSet = checkoutSet;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    /*
+                    ========== @OVERRIDES ==========
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -123,5 +183,18 @@ public class Member {
     @Override
     public int hashCode() {
         return Objects.hash(ID);
+    }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "ID=" + ID +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", memberType=" + memberType +
+                ", isExpired=" + isExpired +
+                '}';
     }
 }
