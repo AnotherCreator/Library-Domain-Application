@@ -43,7 +43,8 @@ public class Checkout {
         N:1 relationship (Bi-directional)
         Member(Owned) <--> Checkout(Owner)
      */
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "member_id")
     private Member member;
 
     /*
