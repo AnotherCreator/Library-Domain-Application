@@ -27,17 +27,6 @@ public class Employee {
     }
 
     /*
-            ========== RELATIONSHIPS ==========
-     */
-    /*
-        Not every member will be an employee but every employee with automatically be a member
-        1:1 Relationship (Uni-Directional)
-        Member --> Employee
-     */
-    @OneToOne(cascade = CascadeType.ALL)
-    private Member member;
-
-    /*
         ========== OBJECT RELATED VARIABLES ==========
      */
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -102,14 +91,6 @@ public class Employee {
 
     public void setEnded(LocalDate ended) {
         this.ended = ended;
-    }
-
-    public Member getMember() {
-        return member;
-    }
-
-    public void setMember(Member member) {
-        this.member = member;
     }
 
     /*

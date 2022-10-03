@@ -67,7 +67,6 @@ public class MemberRelationshipTest extends AbstractJPATest{
                 LocalDate.of(2022, Month.NOVEMBER, 1),
                 LocalDate.of(2022, Month.DECEMBER, 31));
 
-        employee.setMember(member);
         member.setEmployee(employee);
 
         // Begin insertion sequence
