@@ -1,6 +1,6 @@
 package edu.iit.sat.itmd4515.jreginaldo.demo;
 
-import edu.iit.sat.itmd4515.jreginaldo.domain.Library;
+import edu.iit.sat.itmd4515.jreginaldo.domain.Member;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -10,20 +10,21 @@ import java.time.LocalDate;
 
 public class Demo {
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("itmd4515testPU");
-        EntityManager em = emf.createEntityManager();
-        EntityTransaction tx = em.getTransaction();
-        tx.begin();
-
-        Library library = new Library();
-
-        library.setName("Avant-Garde Athenaeum");
-        library.setStreetAdd("Address");
-        library.setPhoneNum("111-111-1111");
-        library.setEstablished(LocalDate.now());
-        System.out.println(library);
-
-        em.persist(library);
-        tx.commit();
+//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("itmd4515PU");
+//        EntityManager em = emf.createEntityManager();
+//        EntityTransaction tx = em.getTransaction();
+//        tx.begin();
+//
+//        Member member = new Member();
+//
+//        member.setFirstName("Foo");
+//        member.setLastName("Bar");
+//        member.setPhone("Baz");
+//        member.setAddress("Foo Bar Baz");
+//        member.setMemberType(0);
+//        member.setIsExpired(0);
+//
+//        em.persist(member);
+//        tx.commit();
     }
 }
