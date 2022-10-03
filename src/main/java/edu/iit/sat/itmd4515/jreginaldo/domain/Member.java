@@ -1,10 +1,7 @@
 package edu.iit.sat.itmd4515.jreginaldo.domain;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +17,8 @@ public class Member {
 
     }
 
-    public Member(String firstName, String lastName, String phone, String address, int memberType,
-                  int isExpired) {
+    public Member(String firstName, String lastName, String phone, String address, Integer memberType,
+                  Integer isExpired) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
@@ -38,7 +35,7 @@ public class Member {
         1:N relationship (Bi-directional)
         Member(Owned) <--> Checkout(Owner)
      */
-    @OneToMany(mappedBy = "member")
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Checkout> checkoutSet = new ArrayList<>();
 
     /*
@@ -78,17 +75,17 @@ public class Member {
     // 0 -- Local Resident Card Holder
     // 1 -- Non Local Resident Card Holder
     // 2 -- Staff Card Holder
-    @NotBlank
-    @Size(min = 1, max = 1)
+    @Min(0)
+    @Max(2)
     @Column(name = "member_type")
-    private int memberType;
+    private Integer memberType;
 
     // 0 -- Not expired
     // 1 -- Expired
-    @NotBlank
-    @Size(min = 1, max = 1)
+    @Min(0)
+    @Max(1)
     @Column(name = "expired")
-    private int isExpired;
+    private Integer isExpired;
 
     /*
         ========== GETTER / SETTER ==========
@@ -133,19 +130,19 @@ public class Member {
         this.address = address;
     }
 
-    public int getMemberType() {
+    public Integer getMemberType() {
         return memberType;
     }
 
-    public void setMemberType(int memberType) {
+    public void setMemberType(Integer memberType) {
         this.memberType = memberType;
     }
 
-    public int getIsExpired() {
+    public Integer getIsExpired() {
         return isExpired;
     }
 
-    public void setIsExpired(int isExpired) {
+    public void setIsExpired(Integer isExpired) {
         this.isExpired = isExpired;
     }
 
