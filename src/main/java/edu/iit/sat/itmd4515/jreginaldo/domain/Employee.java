@@ -19,8 +19,7 @@ public class Employee {
 
     }
 
-    public Employee(Long ID, String position, String department, LocalDate started, LocalDate ended) {
-        this.ID = ID;
+    public Employee(String position, String department, LocalDate started, LocalDate ended) {
         this.position = position;
         this.department = department;
         this.started = started;

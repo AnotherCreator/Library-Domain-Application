@@ -16,8 +16,7 @@ public class Checkout {
 
     }
 
-    public Checkout(Long ID, LocalDate reservationDate, LocalDate checkOutDate, LocalDate returnDate) {
-        this.ID = ID;
+    public Checkout(LocalDate reservationDate, LocalDate checkOutDate, LocalDate returnDate) {
         this.reservationDate = reservationDate;
         this.checkOutDate = checkOutDate;
         this.returnDate = returnDate;

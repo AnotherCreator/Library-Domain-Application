@@ -20,8 +20,7 @@ public class Author {
 
     }
 
-    public Author(Long ID, String firstName, String lastName, LocalDate DOB) {
-        this.ID = ID;
+    public Author(String firstName, String lastName, LocalDate DOB) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.DOB = DOB;

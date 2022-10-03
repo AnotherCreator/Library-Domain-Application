@@ -20,10 +20,9 @@ public class Book {
 
     }
 
-    public Book(Author author, Long barcode, String ISBN, String title, String authorName, String publishedBy,
+    public Book(Author author, String ISBN, String title, String authorName, String publishedBy,
                 String genre, LocalDate publishedDate) {
         this.author = author;
-        this.barcode = barcode;
         this.ISBN = ISBN;
         this.title = title;
         this.authorName = authorName;
@@ -55,7 +54,7 @@ public class Book {
         ========== OBJECT RELATED VARIABLES ==========
      */
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long barcode;
+    private Long ID;
 
     @NotBlank
     @Size(min = 13, max = 13)
@@ -89,12 +88,12 @@ public class Book {
     /*
         ========== GETTER / SETTER ==========
      */
-    public Long getBarcode() {
-        return barcode;
+    public Long getID() {
+        return ID;
     }
 
-    public void setBarcode(Long barcode) {
-        this.barcode = barcode;
+    public void setID(Long ID) {
+        this.ID = ID;
     }
 
     public String getISBN() {
@@ -169,22 +168,22 @@ public class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        if ((this.barcode == null || book.barcode == null)) {
+        if ((this.ID == null || book.ID == null)) {
             return false;
         }
-        return barcode.equals(book.barcode);
+        return ID.equals(book.ID);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(barcode);
+        return Objects.hash(ID);
     }
 
     @Override
     public String toString() {
         return "Book{" +
                 "author=" + author +
-                ", barcode=" + barcode +
+                ", barcode=" + ID +
                 ", ISBN='" + ISBN + '\'' +
                 ", title='" + title + '\'' +
                 ", authorName='" + authorName + '\'' +

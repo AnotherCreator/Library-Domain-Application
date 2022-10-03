@@ -20,9 +20,8 @@ public class Member {
 
     }
 
-    public Member(Long ID, String firstName, String lastName, String phone, String address, int memberType,
+    public Member(String firstName, String lastName, String phone, String address, int memberType,
                   int isExpired) {
-        this.ID = ID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;
