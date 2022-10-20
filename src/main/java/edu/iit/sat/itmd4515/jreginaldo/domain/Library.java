@@ -13,6 +13,9 @@ import java.util.Objects;
 @Entity
 public class Library {
 
+    /*
+            ========== CONSTRUCTORS ==========
+     */
     public Library() {
 
     }

@@ -12,6 +12,9 @@ import java.util.Objects;
 @Entity
 public class Checkout {
 
+    /*
+            ========== CONSTRUCTORS ==========
+     */
     public Checkout() {
 
     }

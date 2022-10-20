@@ -32,7 +32,6 @@ public class LibraryJPATest extends AbstractJPATest{
     public void readTest() {
         Library readTest = em.createQuery(
                 "SELECT l FROM Library l WHERE l.name = 'libraryTest'", Library.class).getSingleResult();
-
         assertEquals("libraryTest", readTest.getName());
     }
 

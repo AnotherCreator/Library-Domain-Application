@@ -8,7 +8,7 @@ import java.time.Month;
 
 public class MemberRelationshipTest extends AbstractJPATest{
     @Test
-    public void manyToManyBiDirectionalMemberToCheckoutRelationTest() {
+    public void manyToMany_BiDirectional_MemberToCheckout_RelationTest() {
         /*
             A singular member can have many checkouts at once
             1:N relationship (Bi-directional)
@@ -54,7 +54,7 @@ public class MemberRelationshipTest extends AbstractJPATest{
     }
 
     @Test
-    public void oneToOneUniDirectionalMemberToEmployeeRelationTest() {
+    public void oneToOne_UniDirectional_MemberToEmployee_RelationTest() {
         /*
         Not every member will be an employee but every employee with automatically be a member
         1:1 Relationship (Uni-Directional)
@@ -71,7 +71,7 @@ public class MemberRelationshipTest extends AbstractJPATest{
 
         // Begin insertion sequence
         tx.begin();
-        // Add entities to be added
+        // Entities to be added
         em.persist(member);
         em.persist(employee);
         // End
