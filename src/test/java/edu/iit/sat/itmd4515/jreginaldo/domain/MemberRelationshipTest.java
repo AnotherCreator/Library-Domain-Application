@@ -40,7 +40,7 @@ public class MemberRelationshipTest extends AbstractJPATest{
 
         // Begin insertion sequence
         tx.begin();
-        // Add entities to be added
+        // Entities to be added
         em.persist(member);
         em.persist(checkout1);
         em.persist(checkout2);

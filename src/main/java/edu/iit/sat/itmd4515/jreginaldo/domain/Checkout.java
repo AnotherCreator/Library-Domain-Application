@@ -56,7 +56,7 @@ public class Checkout {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
 
-    // A member can place a now or be in a wait-list
+    // A member can place it now or be in a wait-list
     @PastOrPresent
     @Column(name = "reservation_date")
     private LocalDate reservationDate;
@@ -65,6 +65,11 @@ public class Checkout {
     @FutureOrPresent
     @Column(name = "checkout_date")
     private LocalDate checkOutDate;
+
+    /*
+        TODO: Change "returnDate" to "expectedReturnDate" using @Future annotation
+        TODO: Add "custReturnDate" using @FutureOrPresent annotation
+     */
 
     // The return date will always be in the future
     @Future
@@ -124,7 +129,7 @@ public class Checkout {
 
     /*
                 ========== @OVERRIDES ==========
-         */
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
