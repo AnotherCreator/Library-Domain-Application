@@ -10,6 +10,7 @@ import java.util.Objects;
 // 'Member' will not be able to see 'Employee' data
 
 @Entity
+@NamedQuery(name = "Employee.finalAll", query = "SELECT e FROM Employee e")
 public class Employee {
 
     /*
