@@ -1,5 +1,6 @@
 package edu.iit.sat.itmd4515.jreginaldo.service;
 
+import edu.iit.sat.itmd4515.jreginaldo.domain.Employee;
 import edu.iit.sat.itmd4515.jreginaldo.domain.Member;
 import javax.ejb.Stateless;
 import java.util.List;
@@ -13,6 +14,6 @@ public class MemberService extends AbstractService<Member> {
 
     @Override
     public List<Member> findAll() {
-        return null;
+        return em.createNamedQuery("Member.findAll", Member.class).getResultList();
     }
 }

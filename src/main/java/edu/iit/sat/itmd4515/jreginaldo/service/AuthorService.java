@@ -13,6 +13,6 @@ public class AuthorService extends AbstractService<Author> {
 
     @Override
     public List<Author> findAll() {
-        return null;
+        return em.createNamedQuery("Author.findAll", Author.class).getResultList();
     }
 }
