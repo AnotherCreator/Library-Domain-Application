@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@NamedQuery(name = "Author.finalAll", query = "SELECT a FROM Author a")
+@NamedQuery(name = "Author.findAll", query = "SELECT a FROM Author a")
 public class Author {
 
     /*

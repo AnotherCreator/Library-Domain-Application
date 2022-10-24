@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@NamedQuery(name = "Member.finalAll", query = "SELECT m FROM Member m")
+@NamedQuery(name = "Member.findAll", query = "SELECT m FROM Member m")
 public class Member {
 
     /*

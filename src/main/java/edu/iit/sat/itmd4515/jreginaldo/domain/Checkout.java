@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@NamedQuery(name = "Checkout.finalAll", query = "SELECT c FROM Checkout c")
+@NamedQuery(name = "Checkout.findAll", query = "SELECT c FROM Checkout c")
 public class Checkout {
 
     /*
