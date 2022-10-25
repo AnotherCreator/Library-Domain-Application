@@ -8,8 +8,8 @@ import java.util.List;
 @Stateless
 public class MemberService extends AbstractService<Member> {
 
-    public MemberService(Class<Member> entityClass) {
-        super(entityClass);
+    public MemberService() {
+        super(Member.class);
     }
 
     @Override

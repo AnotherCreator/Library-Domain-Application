@@ -8,8 +8,8 @@ import java.util.List;
 @Stateless
 public class BookService extends AbstractService<Book> {
 
-    public BookService(Class<Book> entityClass) {
-        super(entityClass);
+    public BookService() {
+        super(Book.class);
     }
 
     @Override

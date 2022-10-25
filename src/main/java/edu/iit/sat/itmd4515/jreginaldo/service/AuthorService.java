@@ -7,8 +7,8 @@ import java.util.List;
 @Stateless
 public class AuthorService extends AbstractService<Author> {
 
-    public AuthorService(Class<Author> entityClass) {
-        super(entityClass);
+    public AuthorService() {
+        super(Author.class);
     }
 
     @Override

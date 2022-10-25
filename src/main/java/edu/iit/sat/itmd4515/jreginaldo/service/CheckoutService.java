@@ -8,8 +8,8 @@ import java.util.List;
 @Stateless
 public class CheckoutService extends AbstractService<Checkout> {
 
-    public CheckoutService(Class<Checkout> entityClass) {
-        super(entityClass);
+    public CheckoutService() {
+        super(Checkout.class);
     }
 
     @Override

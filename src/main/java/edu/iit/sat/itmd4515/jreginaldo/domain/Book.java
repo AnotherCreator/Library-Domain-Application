@@ -23,7 +23,6 @@ public class Book {
 
     public Book(Author author, String ISBN, String title, String authorName, String publishedBy,
                 String genre, LocalDate publishedDate) {
-        this.author = author;
         this.ISBN = ISBN;
         this.title = title;
         this.authorName = authorName;
