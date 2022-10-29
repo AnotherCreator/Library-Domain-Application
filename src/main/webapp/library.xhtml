@@ -15,7 +15,27 @@
     <h1>Create a New Member</h1>
     <h:form>
         <h:panelGroup layout="block">
+            <label for="firstName">
+                First Name:
+                <input type="text" id="firstName" name="firstName"/>
+            </label>
+            <h:outputLabel for="firstName" value="First Name"/>
+        </h:panelGroup>
 
+        <h:panelGroup layout="block">
+            <label for="lastName">
+                Last Name:
+                <input type="text" id="lastName" name="lastName"/>
+            </label>
+            <h:outputLabel for="lastName" value="Last Name"/>
+        </h:panelGroup>
+
+        <h:panelGroup layout="block">
+            <label for="address">
+                Address:
+                <input type="text" id="address" name="address"/>
+            </label>
+            <h:outputLabel for="address" value="Adress"/>
         </h:panelGroup>
     </h:form>
 </h:body>
