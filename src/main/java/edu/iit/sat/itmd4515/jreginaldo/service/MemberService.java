@@ -1,6 +1,5 @@
 package edu.iit.sat.itmd4515.jreginaldo.service;
 
-import edu.iit.sat.itmd4515.jreginaldo.domain.Employee;
 import edu.iit.sat.itmd4515.jreginaldo.domain.Member;
 import javax.ejb.Stateless;
 import java.util.List;
