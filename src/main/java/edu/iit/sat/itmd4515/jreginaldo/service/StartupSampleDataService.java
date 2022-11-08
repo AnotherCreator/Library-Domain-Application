@@ -41,11 +41,11 @@ public class StartupSampleDataService {
 
         // Entities that OWN relationships
         Checkout checkout1 = new Checkout(LocalDate.of(2022, Month.JANUARY, 1), // Past or present
-                LocalDate.of(2022, Month.NOVEMBER, 1),  // Future or present
-                LocalDate.of(2022, Month.DECEMBER, 2)); // Future
+                LocalDate.of(2023, Month.NOVEMBER, 1),  // Future or present
+                LocalDate.of(2023, Month.DECEMBER, 2)); // Future
         Checkout checkout2 = new Checkout(LocalDate.of(2022, Month.JANUARY, 2), // Past or present
-                LocalDate.of(2022, Month.NOVEMBER, 1),  // Future or present
-                LocalDate.of(2022, Month.DECEMBER, 2)); // Future
+                LocalDate.of(2023, Month.NOVEMBER, 1),  // Future or present
+                LocalDate.of(2023, Month.DECEMBER, 2)); // Future
 
         member1.getCheckoutSet().add(checkout1);
         member1.getCheckoutSet().add(checkout2);
