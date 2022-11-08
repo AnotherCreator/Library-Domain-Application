@@ -25,11 +25,11 @@ public class MemberRelationshipTest extends AbstractJPATest{
         // Change according to system clock
         // Reservation date --> Checkout date --> Return date
         Checkout checkout1 = new Checkout(LocalDate.of(2022, Month.JANUARY, 1), // Past or present
-                LocalDate.of(2022, Month.NOVEMBER, 1),  // Future or present
-                LocalDate.of(2022, Month.DECEMBER, 2)); // Future
+                LocalDate.of(2023, Month.NOVEMBER, 10),  // Future or present
+                LocalDate.of(2023, Month.DECEMBER, 2)); // Future
         Checkout checkout2 = new Checkout(LocalDate.of(2022, Month.JANUARY, 2), // Past or present
-                LocalDate.of(2022, Month.NOVEMBER, 1),  // Future or present
-                LocalDate.of(2022, Month.DECEMBER, 2)); // Future
+                LocalDate.of(2023, Month.NOVEMBER, 10),  // Future or present
+                LocalDate.of(2023, Month.DECEMBER, 2)); // Future
 
         // Add checkout info to member
         member.getCheckoutSet().add(checkout1);
@@ -64,8 +64,8 @@ public class MemberRelationshipTest extends AbstractJPATest{
                 0, 0);
 
         Employee employee = new Employee("Lifeguard", "Atlantic",
-                LocalDate.of(2022, Month.NOVEMBER, 1),
-                LocalDate.of(2022, Month.DECEMBER, 31));
+                LocalDate.of(2023, Month.NOVEMBER, 1),
+                LocalDate.of(2024, Month.DECEMBER, 31));
 
         member.setEmployee(employee);
 
