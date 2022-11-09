@@ -8,6 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "sec_user")
+@NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
 public class User {
 
     public User() {
