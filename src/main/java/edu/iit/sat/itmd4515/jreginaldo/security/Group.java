@@ -12,8 +12,14 @@ import java.util.List;
 @Entity
 @Table(name = "sec_group")
 public class Group {
+
     public Group() {
 
+    }
+
+    public Group(String groupName, String groupDesc) {
+        this.groupName = groupName;
+        this.groupDesc = groupDesc;
     }
 
     /*
@@ -21,8 +27,8 @@ public class Group {
     */
     @Id
     private String groupName;
-    private String groupDesc;
 
+    private String groupDesc;
     // User (Owner) -- Group (Owned)
 
     @ManyToMany(mappedBy = "groups")
@@ -34,6 +40,7 @@ public class Group {
     public String getGroupName() {
         return groupName;
     }
+
     public void setGroupName(String groupName) {
         this.groupName = groupName;
     }
@@ -52,5 +59,14 @@ public class Group {
 
     public void setUsers(List<User> users) {
         this.users = users;
+    }
+
+    @Override
+    public String toString() {
+        return "Group{" +
+                "groupName='" + groupName + '\'' +
+                ", groupDesc='" + groupDesc + '\'' +
+                ", users=" + users +
+                '}';
     }
 }

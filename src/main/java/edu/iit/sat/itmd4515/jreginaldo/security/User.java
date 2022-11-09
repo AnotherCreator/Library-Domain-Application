@@ -9,8 +9,14 @@ import java.util.List;
 @Entity
 @Table(name = "sec_user")
 public class User {
+
     public User() {
 
+    }
+
+    public User(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
     }
 
     /*
@@ -22,7 +28,6 @@ public class User {
 
     // Many users to belong to many groups
     // E.g. A patron can be a member, employee, and admin
-
     @ManyToMany
     // User (Owner) -- Group (Owned)
     @JoinTable(name = "sec_user_groups",
@@ -67,5 +72,14 @@ public class User {
     public void removeGroup(Group g) {
         this.groups.remove(g);
         g.getUsers().remove(this);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", groups=" + groups +
+                '}';
     }
 }
