@@ -4,6 +4,8 @@ import edu.iit.sat.itmd4515.jreginaldo.domain.Author;
 import edu.iit.sat.itmd4515.jreginaldo.domain.Book;
 import edu.iit.sat.itmd4515.jreginaldo.domain.Checkout;
 import edu.iit.sat.itmd4515.jreginaldo.domain.Member;
+import edu.iit.sat.itmd4515.jreginaldo.security.Group;
+import edu.iit.sat.itmd4515.jreginaldo.security.User;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -31,6 +33,40 @@ public class StartupSampleDataService {
 
     @PostConstruct
     private void postConstruct() {
+        // Initialize security realm / identity store
+        Group memberGroup = new Group("MEMBER_GROUP", "This group represents library members");
+        Group employeeGroup = new Group("EMPLOYEE_GROUP", "This group represents library employees");
+        Group adminGroup = new Group("ADMIN_GROUP", "This group represents library admins");
+
+        // Create users
+        User member = new User("member", "member");
+        User member2 = new User("member2", "member2");
+        User member3 = new User("member3", "member3");
+
+        User employee = new User("employee", "employee");
+        User employee2 = new User("employee2", "employee2");
+
+        User admin = new User("admin", "admin");
+
+        // Add users to groups
+        member.addGroup(memberGroup); // Non-employee
+
+        // Employees are automatically members
+        member2.addGroup(memberGroup); // Employee
+        member2.addGroup(employeeGroup);
+
+        member3.addGroup(memberGroup); // Employee 2
+        member3.addGroup(employeeGroup);
+
+        // Employees are automatically members
+        employee.addGroup(employeeGroup);
+        employee.addGroup(memberGroup); // Member 2
+
+        employee2.addGroup(employeeGroup);
+        employee2.addGroup(memberGroup); // Member 3
+
+        admin.addGroup(adminGroup);
+
         LOG.info("Inside StartupSampleDataService.postConstruct method");
 
         // Entities that DO NOT OWN relationships
@@ -56,8 +92,8 @@ public class StartupSampleDataService {
         checkoutService.create(checkout1);
         checkoutService.create(checkout2);
 
-        for (Member member : memberService.findAll()) {
-            LOG.info(" ========== MEMBER ========== \n" + member.toString());
+        for (Member m : memberService.findAll()) {
+            LOG.info(" ========== MEMBER ========== \n" + m.toString());
         }
 
         for (Checkout checkout : checkoutService.findAll()) {
