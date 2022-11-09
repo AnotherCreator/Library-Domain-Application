@@ -42,15 +42,28 @@ public class StartupSampleDataService {
         Group employeeGroup = new Group("EMPLOYEE_GROUP", "This group represents library employees");
         Group adminGroup = new Group("ADMIN_GROUP", "This group represents library admins");
 
+        // Non-Owning Entities First
+        groupService.create(memberGroup);
+        groupService.create(employeeGroup);
+        groupService.create(adminGroup);
+
         // Create users
         User member = new User("member", "member");
         User member2 = new User("member2", "member2");
         User member3 = new User("member3", "member3");
 
+        userService.create(member);
+        userService.create(member2);
+        userService.create(member3);
+
         User employee = new User("employee", "employee");
         User employee2 = new User("employee2", "employee2");
 
+        userService.create(employee);
+        userService.create(employee2);
+
         User admin = new User("admin", "admin");
+        userService.create(admin);
 
         // Add users to groups
         member.addGroup(memberGroup); // Non-employee
