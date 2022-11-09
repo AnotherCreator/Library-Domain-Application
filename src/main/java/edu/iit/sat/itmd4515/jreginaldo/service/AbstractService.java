@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-abstract class AbstractService<T> {
+public abstract class AbstractService<T> {
 
     @PersistenceContext(name = "itmd4515PU")
     protected EntityManager em;
