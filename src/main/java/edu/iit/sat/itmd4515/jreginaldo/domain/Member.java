@@ -1,5 +1,7 @@
 package edu.iit.sat.itmd4515.jreginaldo.domain;
 
+import edu.iit.sat.itmd4515.jreginaldo.security.User;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.LocalDate;
@@ -46,6 +48,9 @@ public class Member {
      */
     @OneToOne(cascade = CascadeType.ALL)
     private Employee employee;
+
+    @OneToOne
+    private User user;
 
     /*
         ========== OBJECT RELATED VARIABLES ==========

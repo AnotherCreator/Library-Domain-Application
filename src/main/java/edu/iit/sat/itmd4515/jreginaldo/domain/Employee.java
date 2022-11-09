@@ -1,5 +1,7 @@
 package edu.iit.sat.itmd4515.jreginaldo.domain;
 
+import edu.iit.sat.itmd4515.jreginaldo.security.User;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.LocalDate;
@@ -50,6 +52,9 @@ public class Employee {
     @FutureOrPresent
     @Column(name = "ended")
     private LocalDate ended; // Date employee stopped working
+
+    @OneToOne
+    private User user;
 
     /*
         ========== GETTER / SETTER ==========
