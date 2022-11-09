@@ -5,7 +5,9 @@ import edu.iit.sat.itmd4515.jreginaldo.domain.Book;
 import edu.iit.sat.itmd4515.jreginaldo.domain.Checkout;
 import edu.iit.sat.itmd4515.jreginaldo.domain.Member;
 import edu.iit.sat.itmd4515.jreginaldo.security.Group;
+import edu.iit.sat.itmd4515.jreginaldo.security.GroupService;
 import edu.iit.sat.itmd4515.jreginaldo.security.User;
+import edu.iit.sat.itmd4515.jreginaldo.security.UserService;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -26,6 +28,8 @@ public class StartupSampleDataService {
     @EJB private CheckoutService checkoutService;
     @EJB private EmployeeService employeeService;
     @EJB private MemberService memberService;
+    @EJB private UserService userService;
+    @EJB private GroupService groupService;
 
     public StartupSampleDataService() {
 
