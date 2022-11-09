@@ -46,31 +46,25 @@ public class StartupSampleDataService {
 
         // Create users
         User member = new User("member", "member");
-        User member2 = new User("member2", "member2");
-        User member3 = new User("member3", "member3");
+        User member1 = new User("member1", "member1");
 
         userService.create(member);
-        userService.create(member2);
-        userService.create(member3);
+        userService.create(member1);
 
         User employee = new User("employee", "employee");
-        User employee2 = new User("employee2", "employee2");
 
         userService.create(employee);
-        userService.create(employee2);
 
         User admin = new User("admin", "admin");
         userService.create(admin);
 
         // Add users to groups
         member.addGroup(memberGroup); // Non-employee
-        member2.addGroup(memberGroup); // Employee
 
-        // Employees are automatically members
-        // However, the related member will not be mapped to an employee
+        member1.addGroup(memberGroup); // Employee
+        member1.addGroup(employeeGroup); // Employees are automatically members
+
         employee.addGroup(employeeGroup);
-        employee.addGroup(memberGroup); // Member 2
-
 
         admin.addGroup(adminGroup);
 
@@ -79,21 +73,21 @@ public class StartupSampleDataService {
         // Entities that DO NOT OWN relationships
 
         // Non-employee user with single group
-        Member m = new Member("Ocean", "Man", "111-111-1111", "111 Ocean Drive",
+        Member m = new Member("Member Non Employee Fname", "Member Non Employee Lname", "111-111-1111", "111 Ocean Drive",
                 0, 0);
         m.setUser(member); // Non-Employee
         memberService.create(m);
 
         // Employee user with both member + employee group
-        Member m1 = new Member("Member1 First Name", "Member2 Last Name", "111-111-1111", "111 Ocean Drive",
+        Member m1 = new Member("Member1 Employee Fname", "Member1 Employee Lname", "111-111-1111", "111 Ocean Drive",
                 2, 0);
-        m1.setUser(member2);
+        m1.setUser(member1);
         memberService.create(m1);
 
         Employee emp = new Employee("Position", "Department",
                 LocalDate.now(), // Future or Present
                 LocalDate.of(2024, Month.JANUARY, 1)); // Future
-        emp.setUser(member2);
+        emp.setUser(member1);
         employeeService.create(emp);
 
         // Entities that OWN relationships
