@@ -50,6 +50,7 @@ public class Member {
     private Employee employee;
 
     @OneToOne
+    @JoinColumn(name = "USERNAME")
     private User user;
 
     /*
@@ -168,9 +169,17 @@ public class Member {
         this.employee = employee;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     /*
-                    ========== @OVERRIDES ==========
-     */
+                        ========== @OVERRIDES ==========
+         */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -54,6 +54,7 @@ public class Employee {
     private LocalDate ended; // Date employee stopped working
 
     @OneToOne
+    @JoinColumn(name = "USERNAME")
     private User user;
 
     /*
@@ -99,9 +100,17 @@ public class Employee {
         this.ended = ended;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     /*
-                    ========== @OVERRIDES ==========
-     */
+                        ========== @OVERRIDES ==========
+         */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
