@@ -75,7 +75,6 @@ public class LibraryJPATest extends AbstractJPATest{
 
         // Attempt to read deleted object
         Library deleteCheck = em.find(Library.class, deleteTest.getId());
-
         assertNull(deleteCheck);
     }
 }
