@@ -1,9 +1,6 @@
 package edu.iit.sat.itmd4515.jreginaldo.service;
 
-import edu.iit.sat.itmd4515.jreginaldo.domain.Author;
-import edu.iit.sat.itmd4515.jreginaldo.domain.Book;
-import edu.iit.sat.itmd4515.jreginaldo.domain.Checkout;
-import edu.iit.sat.itmd4515.jreginaldo.domain.Member;
+import edu.iit.sat.itmd4515.jreginaldo.domain.*;
 import edu.iit.sat.itmd4515.jreginaldo.security.Group;
 import edu.iit.sat.itmd4515.jreginaldo.security.GroupService;
 import edu.iit.sat.itmd4515.jreginaldo.security.User;
@@ -67,50 +64,57 @@ public class StartupSampleDataService {
 
         // Add users to groups
         member.addGroup(memberGroup); // Non-employee
-
-        // Employees are automatically members
         member2.addGroup(memberGroup); // Employee
-        member2.addGroup(employeeGroup);
-
-        member3.addGroup(memberGroup); // Employee 2
-        member3.addGroup(employeeGroup);
 
         // Employees are automatically members
+        // However, the related member will not be mapped to an employee
         employee.addGroup(employeeGroup);
         employee.addGroup(memberGroup); // Member 2
 
-        employee2.addGroup(employeeGroup);
-        employee2.addGroup(memberGroup); // Member 3
 
         admin.addGroup(adminGroup);
 
         LOG.info("Inside StartupSampleDataService.postConstruct method");
 
         // Entities that DO NOT OWN relationships
-        Member member1 = new Member("Ocean", "Man", "111-111-1111", "111 Ocean Drive",
-                0, 0);
 
-        memberService.create(member1);
+        // Non-employee user with single group
+        Member m = new Member("Ocean", "Man", "111-111-1111", "111 Ocean Drive",
+                0, 0);
+        m.setUser(member); // Non-Employee
+        memberService.create(m);
+
+        // Employee user with both member + employee group
+        Member m1 = new Member("Member1 First Name", "Member2 Last Name", "111-111-1111", "111 Ocean Drive",
+                2, 0);
+        m1.setUser(member2);
+        memberService.create(m1);
+
+        Employee emp = new Employee("Position", "Department",
+                LocalDate.now(), // Future or Present
+                LocalDate.of(2024, Month.JANUARY, 1)); // Future
+        emp.setUser(member2);
+        employeeService.create(emp);
 
         // Entities that OWN relationships
         Checkout checkout1 = new Checkout(LocalDate.of(2022, Month.JANUARY, 1), // Past or present
-                LocalDate.of(2023, Month.NOVEMBER, 1),  // Future or present
+                LocalDate.now(),  // Future or present
                 LocalDate.of(2023, Month.DECEMBER, 2)); // Future
         Checkout checkout2 = new Checkout(LocalDate.of(2022, Month.JANUARY, 2), // Past or present
-                LocalDate.of(2023, Month.NOVEMBER, 1),  // Future or present
+                LocalDate.now(),  // Future or present
                 LocalDate.of(2023, Month.DECEMBER, 2)); // Future
 
-        member1.getCheckoutSet().add(checkout1);
-        member1.getCheckoutSet().add(checkout2);
+        m.getCheckoutSet().add(checkout1);
+        m.getCheckoutSet().add(checkout2);
 
-        checkout1.setMember(member1);
-        checkout2.setMember(member1);
+        checkout1.setMember(m);
+        checkout2.setMember(m);
 
         checkoutService.create(checkout1);
         checkoutService.create(checkout2);
 
-        for (Member m : memberService.findAll()) {
-            LOG.info(" ========== MEMBER ========== \n" + m.toString());
+        for (Member mem : memberService.findAll()) {
+            LOG.info(" ========== MEMBER ========== \n" + mem.toString());
         }
 
         for (Checkout checkout : checkoutService.findAll()) {
