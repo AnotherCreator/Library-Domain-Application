@@ -7,6 +7,7 @@
   - [Lab 4](#lab-4)
     - [Domain](#domain)
     - [Test Cases](#test-cases)
+  - [Lab 8](#lab-8)
 
 # Final Project Repo
 This repo will be used for the current "Lab 3" assignment until the end of the semester.  
@@ -174,3 +175,48 @@ public void deleteTest() {
 Create a new library object and go through the steps of inserting into the database. Once inserted, delete the new row
 and attempt to read the data into another library object. Check if the new object successfully returns a "Null" value.
 
+[Jump to top](#table-of-contents)
+
+## Lab 8:
+Since this is my first time coming across **Jakarta EE Security,** I have opted to follow along a lot of the lecture
+code demo'd in class with slight modifications to ensure that my domain fits the model.
+
+Potential causes for errors / concerns:
+When running IntelliJ, there seems to be some code that isn't recognized but is still able to function correctly.  
+For example, some bootstrap related elements / attributes throw an error during editing. 
+
+I am probably just missing a couple more steps related to using this IDE or downloading some related libraries locally
+
+### User Roles 
+```
+Users -- Groups Implemented:
+(Username // Password)
+
+ADMIN:
+  admin // admin
+  
+EMPLOYEE(s):
+  member1 // member1
+  
+MEMBER(s):
+  member // member
+  member1 // member1
+  
+GROUPS:
+ADMIN_GROUP
+EMPLOYEE_GROUP
+MEMBER_GROUP
+
+### 
+```
+
+### Screenshot Validations
+#### For the screenshots, I have displayed the results of a user with both "Member" and "Employee" perms
+
+![img.png](assets/images/loginpage.png)
+![img.png](assets/images/member1_home.png)
+![img.png](assets/images/member1_adminfail.png)
+![img.png](assets/images/member1_employeepass.png)
+![img.png](assets/images/member1_memberpass.png)
+
+[Jump to top](#table-of-contents)
