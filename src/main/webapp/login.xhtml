@@ -43,6 +43,7 @@ INTELLIJ: WHEN REBUIILDING ARTIFACTS, USE 'jeginaldo-fp' (original file name)
                <h2 class="text-center text-dark mt-5">Login Form</h2>
                <h:panelGroup class="card my-5" id="form_container">
                   <h:form class="card-body cardbody-color p-lg-5" id="form">
+
                      <h:panelGroup class="text-center" id="img_container">
                         <img src="resources/images/placeholder.jpg" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
                              width="200px" alt="profile" id="img"/>
@@ -59,8 +60,9 @@ INTELLIJ: WHEN REBUIILDING ARTIFACTS, USE 'jeginaldo-fp' (original file name)
                      </h:panelGroup>
 
                      <h:panelGroup class="text-center" id="button_container">
-                        <button type="submit" class="btn btn-color px-5 mb-5 w-100">Login</button>
+                        <h:commandButton styleClass="btn btn-color px-5 mb-5 w-100" value="Login" action="#{loginController.doLogin()}"/>
                      </h:panelGroup>
+
                   </h:form>
                </h:panelGroup>
             </h:panelGroup>
