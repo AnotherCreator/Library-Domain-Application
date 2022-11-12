@@ -4,7 +4,24 @@
 
 <!--
 Login Page Source : https://bootsnipp.com/snippets/dldxB
+
+INTELLIJ: WHEN REBUIILDING ARTIFACTS, USE 'jeginaldo-fp' (original file name)
+         RATHER THAN 'jreginaldo-fp' (final name specified in pom)
+
+         Payara / Glassfish configs should also be using the original 'jeginaldo-fp'.war files
+         for it to run correctly
+
+         IntelliJ (or my current settings) does not seem to automatically build the required artifacts for the
+         web app to run correctly.
+
+         STEPS:
+         1. [Maven] Clean
+         2. [Maven] Verify (Seems to re-add all the required files)
+         3. [IDE] Build -> Build artifacts -> jeginaldo-fp: war exploded
+         4. [IDE] Run -> Edit configs -> Payara / Glassfish -> Ensure jeginaldo-fp: war exploded is being built
 -->
+
+
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
