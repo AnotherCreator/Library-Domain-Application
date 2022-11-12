@@ -20,32 +20,35 @@ Login Page Source : https://bootsnipp.com/snippets/dldxB
 
    <!--   Template Credit: https://codepen.io/rajashekhar90/pen/XWNaapG-->
    <h:body>
-      <div class="container">
-         <div class="row">
-            <div class="col-md-6 offset-md-3">
+      <h:panelGroup class="container">
+         <h:panelGroup class="row">
+            <h:panelGroup class="col-md-6 offset-md-3">
                <h2 class="text-center text-dark mt-5">Login Form</h2>
-               <div class="text-center mb-5 text-dark">Made with bootstrap</div>
-               <div class="card my-5">
-                  <h:form class="card-body cardbody-color p-lg-5">
-                     <div class="text-center">
+               <h:panelGroup class="card my-5" id="form_container">
+                  <h:form class="card-body cardbody-color p-lg-5" id="form">
+                     <h:panelGroup class="text-center" id="img_container">
                         <img src="resources/images/placeholder.jpg" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
-                             width="200px" alt="profile"/>
-                     </div>
+                             width="200px" alt="profile" id="img"/>
+                     </h:panelGroup>
 
-                     <div class="mb-3">
-                        <input type="text" class="form-control" id="Username" placeholder="User Name"/>
-                     </div>
+                     <h:panelGroup class="mb-3">
+                        <h:inputText styleClass="form-control" id="Username" p:placeholder="User Name"/>
+                        <h:outputLabel styleClass="form-label" for="Username"/>
+                     </h:panelGroup>
 
-                     <div class="mb-3">
-                        <input type="password" class="form-control" id="password" placeholder="password"/>
-                     </div>
+                     <h:panelGroup class="mb-3">
+                        <h:inputText styleClass="form-control" id="Password" p:placeholder="Password"/>
+                        <h:outputLabel styleClass="form-label" for="Password"/>
+                     </h:panelGroup>
 
-                     <div class="text-center"><button type="submit" class="btn btn-color px-5 mb-5 w-100">Login</button></div>
+                     <h:panelGroup class="text-center" id="button_container">
+                        <button type="submit" class="btn btn-color px-5 mb-5 w-100">Login</button>
+                     </h:panelGroup>
                   </h:form>
-               </div>
-            </div>
-         </div>
-      </div>
+               </h:panelGroup>
+            </h:panelGroup>
+         </h:panelGroup>
+      </h:panelGroup>
 
       <!-- Bootstrap: Throws error in Intellij IDE but still works -->
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
