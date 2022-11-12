@@ -7,16 +7,19 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      template="../WEB-INF/templates/pageTemplate.xhtml">
+      template="./WEB-INF/templates/pageTemplate.xhtml">
    
    <ui:define name="title">Library Application</ui:define>
    <ui:define name="content">
-      Welcome to Your Library Application. Access content through the menu:
+      Welcome, #{loginController.authenticatedUser}, to Your Library Application. Access content through the menu:
+      <h:form>
          <ul>
             <li><h:link outcome="/welcome.xhtml">Home</h:link></li>
             <li><h:link outcome="/admin/welcome.xhtml">Admin</h:link></li>
-            <li><h:link outcome="/employee/welcome.xhtml">Home</h:link></li>
-            <li><h:link outcome="/member/welcome.xhtml">Home</h:link></li>
+            <li><h:link outcome="/employee/welcome.xhtml">Employee</h:link></li>
+            <li><h:link outcome="/member/welcome.xhtml">Member</h:link></li>
+            <li><h:commandLink action="#{loginController.doLogOut()}" value="Logout"/></li>
          </ul>
+      </h:form>
    </ui:define>
 </ui:composition>

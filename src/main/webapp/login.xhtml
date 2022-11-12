@@ -50,12 +50,20 @@ INTELLIJ: WHEN REBUIILDING ARTIFACTS, USE 'jeginaldo-fp' (original file name)
                      </h:panelGroup>
 
                      <h:panelGroup class="mb-3">
-                        <h:inputText styleClass="form-control" id="Username" p:placeholder="User Name"/>
+                        <h:inputText
+                            styleClass="form-control"
+                            id="Username"
+                            p:placeholder="User Name"
+                            value="#{loginController.user.userName}"/>
                         <h:outputLabel styleClass="form-label" for="Username"/>
                      </h:panelGroup>
 
                      <h:panelGroup class="mb-3">
-                        <h:inputText styleClass="form-control" id="Password" p:placeholder="Password"/>
+                        <h:inputText
+                            styleClass="form-control"
+                            id="Password"
+                            p:placeholder="Password"
+                            value="#{loginController.user.password}"/>
                         <h:outputLabel styleClass="form-label" for="Password"/>
                      </h:panelGroup>
 

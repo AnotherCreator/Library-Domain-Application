@@ -1,7 +1,10 @@
 package edu.iit.sat.itmd4515.jreginaldo.domain;
 
+import edu.iit.sat.itmd4515.jreginaldo.security.Group;
 import edu.iit.sat.itmd4515.jreginaldo.security.User;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -63,4 +66,23 @@ public class SecurityUserJPATest extends AbstractSecurityJPATest {
         User deleteCheck = em.find(User.class, createUserTest.getUserName());
         assertNull(deleteCheck);
     }
+
+//    @Test
+//    public void addGroupsTest() {
+//        User readUserFromAbstract = em.createQuery(
+//                "SELECT u FROM User u WHERE u.userName = 'User Name'", User.class).getSingleResult();
+//
+//        Group readGroupFromAbstract = em.createQuery(
+//                "SELECT g FROM Group g WHERE g.groupName = 'Group Name'", Group.class).getSingleResult();
+//
+//        Group readGroupFromAbstract2 = em.createQuery(
+//                "SELECT g FROM Group g WHERE g.groupName = 'Group Name 2'", Group.class).getSingleResult();
+//
+//        readUserFromAbstract.addGroup(readGroupFromAbstract);
+//        readUserFromAbstract.addGroup(readGroupFromAbstract2);
+//
+//        for (Group group : readUserFromAbstract.getGroups()) {
+//            LOG.info(" ========== USER ========== \n" + group.toString());
+//        }
+//    }
 }

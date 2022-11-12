@@ -52,7 +52,6 @@ public class StartupSampleDataService {
         userService.create(member1);
 
         User employee = new User("employee", "employee");
-
         userService.create(employee);
 
         User admin = new User("admin", "admin");
@@ -69,8 +68,6 @@ public class StartupSampleDataService {
         admin.addGroup(adminGroup);
 
         LOG.info("Inside StartupSampleDataService.postConstruct method");
-
-        // Entities that DO NOT OWN relationships
 
         // Non-employee user with single group
         Member m = new Member("Member Non Employee Fname", "Member Non Employee Lname", "111-111-1111", "111 Ocean Drive",
