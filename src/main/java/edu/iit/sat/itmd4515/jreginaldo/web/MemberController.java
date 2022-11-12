@@ -24,7 +24,7 @@ public class MemberController {
 
     @PostConstruct
     private void postConstruct() {
-        LOG.info("MemberController.postConstuct");
+        LOG.info("Inside MemberController.postConstuct");
 
         member = new Member();
     }

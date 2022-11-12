@@ -21,7 +21,7 @@ public class LoginController {
 
     @PostConstruct
     private void postConstruct() {
-        LOG.info("Inside LoginController.postConstuct");
+        LOG.info("Inside LoginController.postConstuct" + this.user.getUserName());
 
         user = new User();
     }
@@ -29,6 +29,6 @@ public class LoginController {
     public String doLogin() {
         LOG.info("Inside LoginController.doLogin");
 
-        return "/member/welcome.xhtml";
+        return "/welcome.xhtml?faces-redirect=true";
     }
 }
