@@ -44,11 +44,13 @@
             <li class="nav-item">
               <h:link class="nav-link" value="Member" outcome="/member/welcome.xhtml"/>
             </li>
+            <li class="nav-item">
+              <h:link class="nav-link" value="Member" outcome="/member/welcome.xhtml"/>
+            </li>
           </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+          <h:form class="d-flex">
+            <h:commandButton class="btn btn-outline-success" action="#{loginController.doLogOut()}" value="Logout"/>
+          </h:form>
         </div>
       </div>
     </nav>
