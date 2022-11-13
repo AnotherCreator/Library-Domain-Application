@@ -10,7 +10,8 @@
     <welcome-file-list>
         <welcome-file>login.xhtml</welcome-file>
     </welcome-file-list>
-    
+
+    <!--  ADMIN CONSTRAINT  -->
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>Admin Content</web-resource-name>
@@ -21,6 +22,7 @@
         </auth-constraint>
     </security-constraint>
 
+    <!--  EMPLOYEE CONSTRAINT  -->
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>Employee Content</web-resource-name>
@@ -31,6 +33,7 @@
         </auth-constraint>
     </security-constraint>
 
+    <!--  MEMBER CONSTRAINT  -->
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>Member Content</web-resource-name>
@@ -40,4 +43,14 @@
             <role-name>MEMBER_ROLE</role-name>
         </auth-constraint>
     </security-constraint>
+
+    <!--  ERRORS  -->
+    <error-page>
+        <error-code>403</error-code>
+        <location>/errors/access.xhtml</location>
+    </error-page>
+
+    <error-page>
+        <location>/errors/error.xhtml</location>
+    </error-page>
 </web-app>

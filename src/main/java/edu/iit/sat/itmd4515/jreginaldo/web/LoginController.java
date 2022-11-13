@@ -68,7 +68,7 @@ public class LoginController {
             case SEND_FAILURE:
             case NOT_DONE:
                 LOG.info(authenticationStatus.toString());
-                return "/error.xhtml";
+                return "/errors/error.xhtml";
 
         }
 
