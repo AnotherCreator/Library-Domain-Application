@@ -11,7 +11,7 @@
    
    <ui:define name="title">Library Application</ui:define>
    <ui:define name="content">
-      Welcome, #{loginController.authenticatedUser}, to Your Library Application. Access content through the menu:
+      <h1>Welcome, #{loginController.authenticatedUser}.</h1>
       <h:form>
          <ul>
             <li><h:link outcome="/welcome.xhtml">Home</h:link></li>
