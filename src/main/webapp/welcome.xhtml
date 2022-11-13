@@ -12,14 +12,5 @@
    <ui:define name="title">Library Application</ui:define>
    <ui:define name="content">
       <h1>Welcome, #{loginController.authenticatedUser}.</h1>
-      <h:form>
-         <ul>
-            <li><h:link outcome="/welcome.xhtml">Home</h:link></li>
-            <li><h:link outcome="/admin/welcome.xhtml">Admin</h:link></li>
-            <li><h:link outcome="/employee/welcome.xhtml">Employee</h:link></li>
-            <li><h:link outcome="/member/welcome.xhtml">Member</h:link></li>
-            <li><h:commandLink action="#{loginController.doLogOut()}" value="Logout"/></li>
-         </ul>
-      </h:form>
    </ui:define>
 </ui:composition>
