@@ -79,14 +79,15 @@ public class StartupSampleDataService {
                 2, 0);
         // Members will only be able to see the member menu when logging in as MEMBER_ROLE despite being an employee
         m1.setUser(member1);
-        memberService.create(m1);
 
         Employee emp = new Employee("Position", "Department",
                 LocalDate.now(), // Future or Present
                 LocalDate.of(2024, Month.JANUARY, 1)); // Future
         // Employees will be able to see both member + employee menu
+        m1.setEmployee(emp);
         emp.setUser(member1);
         emp.setUser(employee);
+        memberService.create(m1);
         employeeService.create(emp);
 
         // Entities that OWN relationships
