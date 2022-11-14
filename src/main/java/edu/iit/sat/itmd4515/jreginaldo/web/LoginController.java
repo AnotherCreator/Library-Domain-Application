@@ -46,6 +46,18 @@ public class LoginController {
         return facesContext.getExternalContext().getRemoteUser();
     }
 
+    public boolean isAdmin() {
+        return securityContext.isCallerInRole("ADMIN_ROLE");
+    }
+
+    public boolean isEmployee() {
+        return securityContext.isCallerInRole("EMPLOYEE_ROLE");
+    }
+
+    public boolean isMember() {
+        return securityContext.isCallerInRole("MEMBER_ROLE");
+    }
+
     public String doLogin() {
         LOG.info("Inside LoginController.doLogin" + this.user.getUserName());
 
