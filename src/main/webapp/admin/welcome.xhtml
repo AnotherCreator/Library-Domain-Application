@@ -4,10 +4,59 @@
 
 <!-- Template Style / structure as demo'd in lecture -->
 
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       template="../WEB-INF/templates/pageTemplate.xhtml">
    
-   <ui:define name="title">Admin Welcome</ui:define>
-   <ui:define name="content">Some Content</ui:define>
+   <ui:define name="title">Welcome, #{loginController.authenticatedUser}</ui:define>
+   <ui:define name="content">
+      <h1>EMPLOYEE INFORMATION</h1>
+      <h:dataTable value="#{employeeService.findAll()}" var="emp">
+         <h:column>
+            <h:outputText value="#{emp.ID}" />
+         </h:column>
+         <h:column>
+            <h:outputText value="#{emp.position}" />
+         </h:column>
+         <h:column>
+            <h:outputText value="#{emp.department}" />
+         </h:column>
+         <h:column>
+            <h:outputText value="#{emp.started}" />
+         </h:column>
+         <h:column>
+            <h:outputText value="#{emp.ended}" />
+         </h:column>
+      </h:dataTable>
+
+      <h1>MEMBER INFORMATION</h1>
+      <h:dataTable value="#{memberService.findAll()}" var="member">
+         <h:column>
+            <h:outputText value="#{member.ID}" />
+         </h:column>
+         <h:column>
+            <h:outputText value="#{member.employee.ID}" />
+         </h:column>
+         <h:column>
+            <h:outputText value="#{member.firstName}" />
+         </h:column>
+         <h:column>
+            <h:outputText value="#{member.lastName}" />
+         </h:column>
+         <h:column>
+            <h:outputText value="#{member.phone}" />
+         </h:column>
+         <h:column>
+            <h:outputText value="#{member.address}" />
+         </h:column>
+         <h:column>
+            <h:outputText value="#{member.memberType}" />
+         </h:column>
+         <h:column>
+            <h:outputText value="#{member.isExpired}" />
+         </h:column>
+      </h:dataTable>
+   </ui:define>
 </ui:composition>
