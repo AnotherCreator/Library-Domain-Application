@@ -84,7 +84,7 @@ public class StartupSampleDataService {
                 LocalDate.now(), // Future or Present
                 LocalDate.of(2024, Month.JANUARY, 1)); // Future
         // Employees will be able to see both member + employee menu
-        m1.setEmployee(emp);
+        m1.setEmployee(emp); // Link member to new employee entity for member to have employee ID
         emp.setUser(member1);
         emp.setUser(employee);
         memberService.create(m1);
