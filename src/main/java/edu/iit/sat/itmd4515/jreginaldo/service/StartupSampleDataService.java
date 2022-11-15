@@ -12,6 +12,7 @@ import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.List;
 import java.util.logging.Logger;
 
 @Startup
@@ -72,7 +73,6 @@ public class StartupSampleDataService {
         Member m = new Member("Member Non Employee Fname", "Member Non Employee Lname", "111-111-1111", "111 Ocean Drive",
                 0, 0);
         m.setUser(member); // Non-Employee
-        memberService.create(m);
 
         // Employee user with both member + employee group
         Member m1 = new Member("Member1 Employee Fname", "Member1 Employee Lname", "111-111-1111", "111 Ocean Drive",
@@ -90,6 +90,21 @@ public class StartupSampleDataService {
         memberService.create(m1);
         employeeService.create(emp);
 
+        // Create Sample book data to be assigned to "m"
+        Author author = new Author("AuthorFirst", "AuthorLast", LocalDate.now());
+        authorService.create(author);
+        // Note: ISBN has min: 13 chars
+        Book book = new Book(author, "1233333333333", "Book Title", "AuthorNameString",
+                "Publisher", "Genre", LocalDate.of(2000, Month.JANUARY,1));
+        book.setAuthor(author);
+
+        Book book1 = new Book(author, "1233333333334", "Book Title", "AuthorNameString",
+                "Publisher", "Genre", LocalDate.of(2000, Month.JANUARY,1));
+        book1.setAuthor(author);
+
+        bookService.create(book);
+        bookService.create(book1);
+
         // Entities that OWN relationships
         Checkout checkout1 = new Checkout(LocalDate.of(2022, Month.JANUARY, 1), // Past or present
                 LocalDate.now(),  // Future or present
@@ -97,6 +112,12 @@ public class StartupSampleDataService {
         Checkout checkout2 = new Checkout(LocalDate.of(2022, Month.JANUARY, 2), // Past or present
                 LocalDate.now(),  // Future or present
                 LocalDate.of(2023, Month.DECEMBER, 2)); // Future
+        Checkout checkout3 = new Checkout(LocalDate.of(2022, Month.JANUARY, 2), // Past or present
+                LocalDate.now(),  // Future or present
+                LocalDate.of(2023, Month.DECEMBER, 2)); // Future
+
+        checkout1.getBooksForCheckOut().add(book);
+        checkout2.getBooksForCheckOut().add(book1);
 
         m.getCheckoutSet().add(checkout1);
         m.getCheckoutSet().add(checkout2);
