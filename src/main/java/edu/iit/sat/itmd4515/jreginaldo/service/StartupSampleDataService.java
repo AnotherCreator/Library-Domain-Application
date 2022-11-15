@@ -87,12 +87,13 @@ public class StartupSampleDataService {
         m1.setEmployee(emp); // Link member to new employee entity for member to have employee ID
         emp.setUser(member1);
         emp.setUser(employee);
+
         memberService.create(m1);
         employeeService.create(emp);
 
         // Create Sample book data to be assigned to "m"
         Author author = new Author("AuthorFirst", "AuthorLast", LocalDate.now());
-        authorService.create(author);
+
         // Note: ISBN has min: 13 chars
         Book book = new Book(author, "1233333333333", "Book Title", "AuthorNameString",
                 "Publisher", "Genre", LocalDate.of(2000, Month.JANUARY,1));
@@ -102,9 +103,6 @@ public class StartupSampleDataService {
                 "Publisher", "Genre", LocalDate.of(2000, Month.JANUARY,1));
         book1.setAuthor(author);
 
-        bookService.create(book);
-        bookService.create(book1);
-
         // Entities that OWN relationships
         Checkout checkout1 = new Checkout(LocalDate.of(2022, Month.JANUARY, 1), // Past or present
                 LocalDate.now(),  // Future or present
@@ -112,18 +110,23 @@ public class StartupSampleDataService {
         Checkout checkout2 = new Checkout(LocalDate.of(2022, Month.JANUARY, 2), // Past or present
                 LocalDate.now(),  // Future or present
                 LocalDate.of(2023, Month.DECEMBER, 2)); // Future
-        Checkout checkout3 = new Checkout(LocalDate.of(2022, Month.JANUARY, 2), // Past or present
-                LocalDate.now(),  // Future or present
-                LocalDate.of(2023, Month.DECEMBER, 2)); // Future
 
         checkout1.getBooksForCheckOut().add(book);
         checkout2.getBooksForCheckOut().add(book1);
 
+        checkout1.setMember(m);
+        checkout2.setMember(m);
+
+        book.getCheckoutSet().add(checkout1);
+        book1.getCheckoutSet().add(checkout2);
+
         m.getCheckoutSet().add(checkout1);
         m.getCheckoutSet().add(checkout2);
 
-        checkout1.setMember(m);
-        checkout2.setMember(m);
+        authorService.create(author);
+
+        bookService.create(book);
+        bookService.create(book1);
 
         checkoutService.create(checkout1);
         checkoutService.create(checkout2);
