@@ -11,6 +11,8 @@ import java.util.Objects;
 
 @Entity
 @NamedQuery(name = "Member.findAll", query = "SELECT m FROM Member m")
+// As demo'd in class
+@NamedQuery(name = "Member.findByUsername", query = "SELECT m FROM Member m WHERE m.user.userName = :username")
 public class Member {
 
     /*

@@ -17,4 +17,9 @@ public class MemberService extends AbstractService<Member> {
     public List<Member> findAll() {
         return em.createNamedQuery("Member.findAll", Member.class).getResultList();
     }
+
+    public Member findByUsername(String username) {
+        return em.createNamedQuery("Member.findByUsername", Member.class)
+                .setParameter("username", username).getSingleResult();
+    }
 }
