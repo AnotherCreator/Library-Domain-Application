@@ -3,7 +3,9 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:form="http://www.springframework.org/tags/form"
+      xmlns:f="http://java.sun.com/jsf/core">
   <h:head>
     <!-- Bootstrap: Throws error in Intellij IDE but still works -->
     <meta charset="utf-8"/>
@@ -62,6 +64,27 @@
                      styleClass="form-control"
                      value="#{memberController.member.phone}"/>
         <h:messages for="phone"/>
+      </h:panelGroup>
+      <br/>
+
+      <h:panelGroup layout="block" styleClass="btn-group">
+        <h:selectOneMenu id="isExpired"
+                         value="#{memberController.member.isExpired}"
+                         styleClass="btn btn-info dropdown-toggle">
+          <f:selectItem itemValue="0" itemLabel="Valid Card"/>
+          <f:selectItem itemValue="1" itemLabel="Expired Card"/>
+        </h:selectOneMenu>
+      </h:panelGroup>
+      <br/>
+
+      <h:panelGroup layout="block" styleClass="btn-group">
+        <h:selectOneMenu id="isMember"
+                         value="#{memberController.member.memberType}"
+                         styleClass="btn btn-info dropdown-toggle">
+          <f:selectItem itemValue="0" itemLabel="Resident Card Holder"/>
+          <f:selectItem itemValue="1" itemLabel="Non-Resident Card Holder"/>
+          <f:selectItem itemValue="2" itemLabel="Staff Card Holder"/>
+        </h:selectOneMenu>
       </h:panelGroup>
       <br/>
 
