@@ -42,6 +42,6 @@ public class MemberController {
 
         memberService.create(member);
 
-        return "/member/memberConfirmation.xhtml";
+        return "/admin/memberConfirmation.xhtml";
     }
 }
