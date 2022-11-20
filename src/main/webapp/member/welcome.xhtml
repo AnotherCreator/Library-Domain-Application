@@ -13,39 +13,41 @@
 
    <ui:define name="title">Welcome, #{loginController.authenticatedUser}</ui:define>
    <ui:define name="content">
-      <h1>MEMBER INFORMATION</h1>
+      <h1>MEMBER INFO</h1>
       <h:dataTable class="table table-striped" value="#{memberWelcomeController.member}" var="member">
          <h:column>
             <f:facet name="header"><h:outputText value="Member ID"/></f:facet>
-            <h:outputText value="#{member.ID}"/>
-         </h:column>
-         <h:column>
-            <f:facet name="header"><h:outputText value="First Name"/></f:facet>
-            <h:outputText value="#{member.firstName}"/>
-         </h:column>
-         <h:column>
-            <f:facet name="header"><h:outputText value="Last Name"/></f:facet>
-            <h:outputText value="#{member.lastName}"/>
+            <h:outputText value="#{member.ID}" />
          </h:column>
       </h:dataTable>
-      <h1>MEMBER CHECKOUTS</h1>
-      <h:dataTable class="table table-striped" value="#{memberWelcomeController.member.checkoutSet}" var="member">
+
+      <h1>CHECKOUTS</h1>
+      <h:dataTable class="table table-striped" value="#{memberWelcomeController.member.checkoutSet}" var="memberCheckOut">
          <h:column>
             <f:facet name="header"><h:outputText value="Checkout ID"/></f:facet>
-            <h:outputText value="#{member.ID}"/>
+            <h:outputText value="#{memberCheckOut.ID}" />
          </h:column>
          <h:column>
             <f:facet name="header"><h:outputText value="RSVP Date"/></f:facet>
-            <h:outputText value="#{member.reservationDate}"/>
+            <h:outputText value="#{memberCheckOut.reservationDate}" />
          </h:column>
          <h:column>
             <f:facet name="header"><h:outputText value="Pick Up Date"/></f:facet>
-            <h:outputText value="#{member.checkOutDate}"/>
+            <h:outputText value="#{memberCheckOut.checkOutDate}" />
          </h:column>
          <h:column>
             <f:facet name="header"><h:outputText value="Return Date"/></f:facet>
-            <h:outputText value="#{member.returnDate}"/>
+            <h:outputText value="#{memberCheckOut.returnDate}" />
          </h:column>
       </h:dataTable>
+
+      <h1>BOOKS FOR CHECKOUT</h1>
+      <h:dataTable class="table table-striped" value="#{memberWelcomeController.member.checkoutSet}" var="memberBooks">
+         <h:column>
+            <f:facet name="header"><h:outputText value="Books For Checkout"/></f:facet>
+            <h:outputText value="#{memberBooks.booksForCheckOut}" />
+         </h:column>
+      </h:dataTable>
+
    </ui:define>
 </ui:composition>
