@@ -93,13 +93,14 @@ public class StartupSampleDataService {
 
         // Create Sample book data to be assigned to "m"
         Author author = new Author("AuthorFirst", "AuthorLast", LocalDate.now());
+        authorService.create(author);
 
         // Note: ISBN has min: 13 chars
-        Book book = new Book(author, "1233333333333", "Book Title", "AuthorNameString",
+        Book book = new Book("1233333333333", "Book Title", "AuthorNameString",
                 "Publisher", "Genre", LocalDate.of(2000, Month.JANUARY,1));
         book.setAuthor(author);
 
-        Book book1 = new Book(author, "1233333333334", "Book Title", "AuthorNameString",
+        Book book1 = new Book("1233333333334", "Book Title", "AuthorNameString",
                 "Publisher", "Genre", LocalDate.of(2000, Month.JANUARY,1));
         book1.setAuthor(author);
 
@@ -107,9 +108,16 @@ public class StartupSampleDataService {
         Checkout checkout1 = new Checkout(LocalDate.of(2022, Month.JANUARY, 1), // Past or present
                 LocalDate.now(),  // Future or present
                 LocalDate.of(2023, Month.DECEMBER, 2)); // Future
+
         Checkout checkout2 = new Checkout(LocalDate.of(2022, Month.JANUARY, 2), // Past or present
                 LocalDate.now(),  // Future or present
                 LocalDate.of(2023, Month.DECEMBER, 2)); // Future
+
+        //TODO: FIX Checkout Book Display
+
+        // Assign book(s) to
+        book.getCheckoutSet().add(checkout1);
+        book1.getCheckoutSet().add(checkout2);
 
         checkout1.getBooksForCheckOut().add(book);
         checkout2.getBooksForCheckOut().add(book1);
@@ -117,13 +125,8 @@ public class StartupSampleDataService {
         checkout1.setMember(m);
         checkout2.setMember(m);
 
-        book.getCheckoutSet().add(checkout1);
-        book1.getCheckoutSet().add(checkout2);
-
         m.getCheckoutSet().add(checkout1);
         m.getCheckoutSet().add(checkout2);
-
-        authorService.create(author);
 
         bookService.create(book);
         bookService.create(book1);
@@ -131,13 +134,10 @@ public class StartupSampleDataService {
         checkoutService.create(checkout1);
         checkoutService.create(checkout2);
 
-        for (Member mem : memberService.findAll()) {
-            LOG.info(" ========== MEMBER ========== \n" + mem.toString());
-        }
-
-        for (Checkout checkout : checkoutService.findAll()) {
-            LOG.info(" ========== CHECKOUT ========== \n" + checkout.toString());
-            LOG.info(" ========== CHECKOUT MEMBER ========== \n" + checkout.getMember().toString());
+        for (Checkout loopCheckout : checkoutService.findAll()) {
+            LOG.info(" ========== CHECKOUT ========== \n" + loopCheckout.toString());
+            LOG.info(" ========== BOOKS ========== \n" + loopCheckout.getBooksForCheckOut());
+            LOG.info(" ========== CHECKOUT MEMBER ========== \n" + loopCheckout.getMember().toString());
         }
     }
 }
