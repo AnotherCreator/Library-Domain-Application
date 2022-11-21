@@ -16,6 +16,8 @@
         <web-resource-collection>
             <web-resource-name>Admin Content</web-resource-name>
             <url-pattern>/admin/*</url-pattern>
+            <url-pattern>/create/newEmployee/*</url-pattern>
+            <url-pattern>/create/newMember/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <role-name>ADMIN_ROLE</role-name>
@@ -27,6 +29,7 @@
         <web-resource-collection>
             <web-resource-name>Employee Content</web-resource-name>
             <url-pattern>/employee/*</url-pattern>
+            <url-pattern>/create/newMember/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <role-name>EMPLOYEE_ROLE</role-name>
