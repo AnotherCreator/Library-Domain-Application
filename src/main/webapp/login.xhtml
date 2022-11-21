@@ -53,21 +53,25 @@ INTELLIJ: WHEN REBUIILDING ARTIFACTS, USE 'jeginaldo-fp' (original file name)
                      <!-- USERNAME FIELD -->
                      <h:panelGroup class="mb-3">
                         <h:inputText
-                            styleClass="form-control"
+                            binding="#{userNameField}"
+                            styleClass="#{userNameField.valid ? 'form-control' : 'form-control is-invalid'}"
                             id="Username"
-                            p:placeholder="User Name"
+                            p:placeholder="#{userNameField.valid ? 'Username' : 'Missing username'}"
                             value="#{loginController.user.userName}"/>
                         <h:outputLabel styleClass="form-label" for="Username"/>
+                        <h:messages for="Username" styleClass="text-bg-danger"/>
                      </h:panelGroup>
 
                      <!-- PASSWORD FIELD -->
                      <h:panelGroup class="mb-3">
                         <h:inputSecret
-                            styleClass="form-control"
+                            binding="#{passwordField}"
+                            styleClass="#{passwordField.valid ? 'form-control' : 'form-control is-invalid'}"
                             id="Password"
-                            p:placeholder="Password"
+                            p:placeholder="#{passwordField.valid ? 'Password' : 'Missing password'}"
                             value="#{loginController.user.password}"/>
                         <h:outputLabel styleClass="form-label" for="Password"/>
+                        <h:messages for="Password" styleClass="text-bg-danger"/>
                      </h:panelGroup>
 
                      <!-- LOGIN BUTTON -->
