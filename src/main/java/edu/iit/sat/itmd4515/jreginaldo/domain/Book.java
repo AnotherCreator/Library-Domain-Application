@@ -21,7 +21,7 @@ public class Book {
 
     }
 
-    public Book(Author author, String ISBN, String title, String authorName, String publishedBy,
+    public Book(String ISBN, String title, String authorName, String publishedBy,
                 String genre, LocalDate publishedDate) {
         this.ISBN = ISBN;
         this.title = title;
