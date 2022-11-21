@@ -1,6 +1,7 @@
 package edu.iit.sat.itmd4515.jreginaldo.security;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +26,9 @@ public class User {
         ========== OBJECT RELATED VARIABLES ==========
      */
     @Id
+    @NotBlank(message = "Required: Username")
     private String userName;
+    @NotBlank(message = "Required: Password")
     private String password;
 
     // Many users to belong to many groups
