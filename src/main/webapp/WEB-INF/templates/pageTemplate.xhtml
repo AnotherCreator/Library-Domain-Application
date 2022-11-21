@@ -7,7 +7,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:fn="http://java.sun.com/jstl/functions">
 
   <h:head>
     <!-- Bootstrap: Throws error in Intellij IDE but still works -->
@@ -34,14 +35,17 @@
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
             <!-- HOME -->
             <li class="nav-item">
-              <h:link class="nav-link" value="Home" outcome="/welcome.xhtml"/>
+              <h:link class="nav-link"
+                      value="Home"
+                      outcome="/welcome.xhtml"/>
             </li>
 
             <!-- ADMIN RENDER CONTAINER-->
             <ui:fragment rendered="#{loginController.admin}">
               <li class="nav-item">
                 <h:link class="nav-link"
-                        value="Admin" outcome="/admin/welcome.xhtml"/>
+                        value="Admin"
+                        outcome="/admin/welcome.xhtml"/>
               </li>
             </ui:fragment>
 
@@ -49,7 +53,8 @@
             <ui:fragment rendered="#{loginController.employee}">
               <li class="nav-item">
                 <h:link class="nav-link"
-                        value="Employee" outcome="/employee/welcome.xhtml"/>
+                        value="Employee"
+                        outcome="/employee/welcome.xhtml"/>
               </li>
             </ui:fragment>
 
@@ -57,7 +62,8 @@
             <ui:fragment rendered="#{loginController.member}">
               <li class="nav-item">
                 <h:link class="nav-link"
-                        value="Member" outcome="/member/welcome.xhtml"/>
+                        value="Member"
+                        outcome="/member/welcome.xhtml"/>
               </li>
             </ui:fragment>
           </ul>
