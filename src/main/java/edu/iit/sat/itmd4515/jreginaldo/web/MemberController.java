@@ -42,6 +42,9 @@ public class MemberController {
 
         memberService.create(member);
 
-        return "/admin/memberConfirmation.xhtml";
+        return "/create/newMember/memberConfirmation.xhtml";
     }
+
+    // MEMBER CRUD METHODS FOR /admin/welcome.xhtml
+
 }
