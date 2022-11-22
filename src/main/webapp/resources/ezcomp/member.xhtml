@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<!-- INTERFACE -->
+<cc:interface>
+  <cc:attribute name="operation" type="java.lang.String" required="true" />
+  <cc:attribute name="member" type="edu.iit.sat.itmd4515.jreginaldo.domain.Member" required="true" />
+  <cc:attribute name="action" required="false" method-signature="java.lang.String action()"/>
+</cc:interface>
+
+<!-- IMPLEMENTATION -->
+<cc:implementation>
+  <h:form>
+    <h:panelGroup layout="block" styleClass="mb-3">
+      <h:outputLabel for="firstName"
+                     value="First Name"
+                     styleClass="form-label"/>
+      <h:inputText id="firstName"
+                   p:placeholder="First Name"
+                   styleClass="form-control"
+                   value="#{memberController.member.firstName}"/>
+      <h:messages for="firstName"/>
+    </h:panelGroup>
+    <br/>
+
+    <h:panelGroup layout="block" styleClass="mb-3">
+      <h:outputLabel for="lastName"
+                     value="Last Name"
+                     styleClass="form-label"/>
+      <h:inputText id="lastName"
+                   p:placeholder="Last Name"
+                   styleClass="form-control"
+                   value="#{memberController.member.lastName}"/>
+      <h:messages for="lastName"/>
+    </h:panelGroup>
+    <br/>
+
+    <h:panelGroup layout="block" styleClass="mb-3">
+      <h:outputLabel for="address"
+                     value="Address"
+                     styleClass="form-label"/>
+      <h:inputText id="address"
+                   p:placeholder="Address"
+                   styleClass="form-control"
+                   value="#{memberController.member.address}"/>
+      <h:messages for="address"/>
+    </h:panelGroup>
+    <br/>
+
+    <h:panelGroup layout="block" styleClass="mb-3">
+      <h:outputLabel for="phone"
+                     value="Phone"
+                     styleClass="form-label"/>
+      <h:inputText id="phone"
+                   p:placeholder="Phone"
+                   styleClass="form-control"
+                   value="#{memberController.member.phone}"/>
+      <h:messages for="phone"/>
+    </h:panelGroup>
+    <br/>
+
+    <h:panelGroup layout="block">
+      <h:outputLabel value="Select Card Status" for="isExpired"/>
+      <h:selectOneMenu id="isExpired"
+                       value="#{memberController.member.isExpired}"
+                       styleClass="form-control">
+        <f:selectItem itemValue="0" itemLabel="Valid Card"/>
+        <f:selectItem itemValue="1" itemLabel="Expired Card"/>
+      </h:selectOneMenu>
+    </h:panelGroup>
+    <br/>
+
+    <h:panelGroup layout="block">
+      <h:outputLabel value="Select Card Type" for="isMember"/>
+      <h:selectOneMenu id="isMember"
+                       value="#{memberController.member.memberType}"
+                       styleClass="form-control">
+        <f:selectItem itemValue="0" itemLabel="Resident Card Holder"/>
+        <f:selectItem itemValue="1" itemLabel="Non-Resident Card Holder"/>
+        <f:selectItem itemValue="2" itemLabel="Staff Card Holder"/>
+      </h:selectOneMenu>
+    </h:panelGroup>
+    <br/>
+
+    <h:commandButton styleClass="btn btn-primary btn-lg btn-block" value="Create Member" action="#{memberController.saveMember()}"/>
+  </h:form>
+</cc:implementation>
+</html>
