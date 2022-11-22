@@ -16,6 +16,8 @@
 
   <ui:define name="content">
     <h1 class="text-center">Create a New Member</h1>
-    <ezcomp:member operation="create"/>
+    <ezcomp:member operation="create"
+                   member="#{memberController.member}"
+                   action="#{memberController.saveMember()}"/>
   </ui:define>
 </ui:composition>
