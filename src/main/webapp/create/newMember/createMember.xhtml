@@ -7,6 +7,7 @@
     xmlns:f="http://xmlns.jcp.org/jsf/core"
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
     xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:ezcomp="http://xmlns.jcp.org/jsf/composite/ezcomp"
     template="../../WEB-INF/templates/pageTemplate.xhtml">
 
   <ui:define name="title">
@@ -15,79 +16,6 @@
 
   <ui:define name="content">
     <h1 class="text-center">Create a New Member</h1>
-    <h:form>
-      <h:panelGroup layout="block" styleClass="mb-3">
-        <h:outputLabel for="firstName"
-                       value="First Name"
-                       styleClass="form-label"/>
-        <h:inputText id="firstName"
-                     p:placeholder="First Name"
-                     styleClass="form-control"
-                     value="#{memberController.member.firstName}"/>
-        <h:messages for="firstName"/>
-      </h:panelGroup>
-      <br/>
-
-      <h:panelGroup layout="block" styleClass="mb-3">
-        <h:outputLabel for="lastName"
-                       value="Last Name"
-                       styleClass="form-label"/>
-        <h:inputText id="lastName"
-                     p:placeholder="Last Name"
-                     styleClass="form-control"
-                     value="#{memberController.member.lastName}"/>
-        <h:messages for="lastName"/>
-      </h:panelGroup>
-      <br/>
-
-      <h:panelGroup layout="block" styleClass="mb-3">
-        <h:outputLabel for="address"
-                       value="Address"
-                       styleClass="form-label"/>
-        <h:inputText id="address"
-                     p:placeholder="Address"
-                     styleClass="form-control"
-                     value="#{memberController.member.address}"/>
-        <h:messages for="address"/>
-      </h:panelGroup>
-      <br/>
-
-      <h:panelGroup layout="block" styleClass="mb-3">
-        <h:outputLabel for="phone"
-                       value="Phone"
-                       styleClass="form-label"/>
-        <h:inputText id="phone"
-                     p:placeholder="Phone"
-                     styleClass="form-control"
-                     value="#{memberController.member.phone}"/>
-        <h:messages for="phone"/>
-      </h:panelGroup>
-      <br/>
-
-      <h:panelGroup layout="block">
-        <h:outputLabel value="Select Card Status" for="isExpired"/>
-        <h:selectOneMenu id="isExpired"
-                         value="#{memberController.member.isExpired}"
-                         styleClass="form-control">
-          <f:selectItem itemValue="0" itemLabel="Valid Card"/>
-          <f:selectItem itemValue="1" itemLabel="Expired Card"/>
-        </h:selectOneMenu>
-      </h:panelGroup>
-      <br/>
-
-      <h:panelGroup layout="block">
-        <h:outputLabel value="Select Card Type" for="isMember"/>
-        <h:selectOneMenu id="isMember"
-                         value="#{memberController.member.memberType}"
-                         styleClass="form-control">
-          <f:selectItem itemValue="0" itemLabel="Resident Card Holder"/>
-          <f:selectItem itemValue="1" itemLabel="Non-Resident Card Holder"/>
-          <f:selectItem itemValue="2" itemLabel="Staff Card Holder"/>
-        </h:selectOneMenu>
-      </h:panelGroup>
-      <br/>
-
-      <h:commandButton styleClass="btn btn-primary btn-lg btn-block" value="Create Member" action="#{memberController.saveMember()}"/>
-    </h:form>
+    <ezcomp:member operation="create"/>
   </ui:define>
 </ui:composition>
