@@ -29,12 +29,28 @@ public class MemberController {
         member = new Member();
     }
 
-    public Member getMember() {
-        return member;
+    /*
+        CRUD METHOD IMPLEMENTATION FOR WEB VIEW
+    */
+    public String memberReadPage(Member member) {
+        LOG.info("Inside memberReadPage with " + member.toString());
+        this.member = member;
+
+        return "/admin/readMember.xhtml";
     }
 
-    public void setMember(Member member) {
+    public String memberEditPage(Member member) {
+        LOG.info("Inside memberEditPage with " + member.toString());
         this.member = member;
+
+        return "/admin/editMember.xhtml";
+    }
+
+    public String memberDeletePage(Member member) {
+        LOG.info("Inside memberEditPage with " + member.toString());
+        this.member = member;
+
+        return "/admin/deleteMember.xhtml";
     }
 
     public String saveMember() {
@@ -45,6 +61,11 @@ public class MemberController {
         return "/create/newMember/memberConfirmation.xhtml";
     }
 
-    // MEMBER CRUD METHODS FOR /admin/welcome.xhtml
+    public Member getMember() {
+        return member;
+    }
 
+    public void setMember(Member member) {
+        this.member = member;
+    }
 }
