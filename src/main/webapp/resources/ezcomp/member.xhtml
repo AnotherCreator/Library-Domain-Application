@@ -6,14 +6,12 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<!-- INTERFACE -->
 <cc:interface>
   <cc:attribute name="operation" type="java.lang.String" required="true" />
   <cc:attribute name="member" type="edu.iit.sat.itmd4515.jreginaldo.domain.Member" required="true" />
   <cc:attribute name="action" required="false" method-signature="java.lang.String action()"/>
 </cc:interface>
 
-<!-- IMPLEMENTATION -->
 <cc:implementation>
   <h:form>
     <h:panelGroup layout="block" styleClass="mb-3">
@@ -87,7 +85,26 @@
     </h:panelGroup>
     <br/>
 
-    <h:commandButton styleClass="btn btn-primary btn-lg btn-block" value="Create Member" action="#{cc.attrs.action}"/>
+    <!--  RENDER IF <ezcomp:member> 'operation' == 'create'  -->
+    <h:commandButton
+        rendered="#{cc.attrs.operation.equalsIgnoreCase('create')}"
+        styleClass="btn btn-primary btn-lg btn-block"
+        value="Create Member"
+        action="#{cc.attrs.action}"/>
+
+    <!--  RENDER IF <ezcomp:member> 'operation' == 'update'  -->
+    <h:commandButton
+        rendered="#{cc.attrs.operation.equalsIgnoreCase('update')}"
+        styleClass="btn btn-primary btn-lg btn-block"
+        value="Update Member"
+        action="#{cc.attrs.action}"/>
+
+    <!--  RENDER IF <ezcomp:member> 'operation' == 'delete'  -->
+    <h:commandButton
+        rendered="#{cc.attrs.operation.equalsIgnoreCase('delete')}"
+        styleClass="btn btn-primary btn-lg btn-block"
+        value="Delete Member"
+        action="#{cc.attrs.action}"/>
   </h:form>
 </cc:implementation>
 </html>
