@@ -42,11 +42,18 @@
          </h:column>
          <h:column>
             <f:facet name="header"><h:outputText value="Member Type"/></f:facet>
-            <h:outputText value="#{member.memberType}" />
+            <!--
+               If memberType == 0 (Resident Card Holder)
+               else if memberType == 1 (Non-Resident Card Holder)
+               else (Staff Card Holder)
+            -->
+            <h:outputText
+                value="#{member.memberType == 0 ? 'Resident Card Holder' :
+            member.memberType == 1 ? 'Non-Resident Card Holder' : 'Staff Card Holder'}"/>
          </h:column>
          <h:column>
             <f:facet name="header"><h:outputText value="Expired"/></f:facet>
-            <h:outputText value="#{member.isExpired}" />
+            <h:outputText value="#{member.isExpired == 0 ? 'Valid Card' : 'Expired Card'}" />
          </h:column>
          <!-- MEMBER CRUD INFO -->
          <h:column>
