@@ -23,7 +23,7 @@
       <h:inputText id="firstName"
                    p:placeholder="First Name"
                    styleClass="form-control"
-                   value="#{memberController.member.firstName}"/>
+                   value="#{cc.attrs.member.firstName}"/>
       <h:messages for="firstName"/>
     </h:panelGroup>
     <br/>
@@ -35,7 +35,7 @@
       <h:inputText id="lastName"
                    p:placeholder="Last Name"
                    styleClass="form-control"
-                   value="#{memberController.member.lastName}"/>
+                   value="#{cc.attrs.member.lastName}"/>
       <h:messages for="lastName"/>
     </h:panelGroup>
     <br/>
@@ -47,7 +47,7 @@
       <h:inputText id="address"
                    p:placeholder="Address"
                    styleClass="form-control"
-                   value="#{memberController.member.address}"/>
+                   value="#{cc.attrs.member.address}"/>
       <h:messages for="address"/>
     </h:panelGroup>
     <br/>
@@ -59,7 +59,7 @@
       <h:inputText id="phone"
                    p:placeholder="Phone"
                    styleClass="form-control"
-                   value="#{memberController.member.phone}"/>
+                   value="#{cc.attrs.member.phone}"/>
       <h:messages for="phone"/>
     </h:panelGroup>
     <br/>
@@ -67,7 +67,7 @@
     <h:panelGroup layout="block">
       <h:outputLabel value="Select Card Status" for="isExpired"/>
       <h:selectOneMenu id="isExpired"
-                       value="#{memberController.member.isExpired}"
+                       value="#{cc.attrs.member.isExpired}"
                        styleClass="form-control">
         <f:selectItem itemValue="0" itemLabel="Valid Card"/>
         <f:selectItem itemValue="1" itemLabel="Expired Card"/>
@@ -78,7 +78,7 @@
     <h:panelGroup layout="block">
       <h:outputLabel value="Select Card Type" for="isMember"/>
       <h:selectOneMenu id="isMember"
-                       value="#{memberController.member.memberType}"
+                       value="#{cc.attrs.member.memberType}"
                        styleClass="form-control">
         <f:selectItem itemValue="0" itemLabel="Resident Card Holder"/>
         <f:selectItem itemValue="1" itemLabel="Non-Resident Card Holder"/>
@@ -87,7 +87,7 @@
     </h:panelGroup>
     <br/>
 
-    <h:commandButton styleClass="btn btn-primary btn-lg btn-block" value="Create Member" action="#{memberController.saveMember()}"/>
+    <h:commandButton styleClass="btn btn-primary btn-lg btn-block" value="Create Member" action="#{cc.attrs.action}"/>
   </h:form>
 </cc:implementation>
 </html>
