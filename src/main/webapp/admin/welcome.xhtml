@@ -93,8 +93,8 @@
          <h:column>
             <h:form>
                <h:commandLink value="READ " action="#{memberController.memberReadPage(member)}"/>
-               <h:commandLink value="UPDATE "/>
-               <h:commandLink value="DELETE "/>
+               <h:commandLink value="UPDATE " action="#{memberController.memberEditPage(member)}"/>
+               <h:commandLink value="DELETE " action="#{memberController.memberDeletePage(member)}"/>
             </h:form>
          </h:column>
       </h:dataTable>
