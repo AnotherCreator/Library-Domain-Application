@@ -6,6 +6,8 @@ import edu.iit.sat.itmd4515.jreginaldo.service.MemberService;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.logging.Logger;
 
@@ -45,13 +47,17 @@ public class MemberController {
 
         this.member = member;
 
+        LOG.info("Leaving memberReadPage with " + this.member);
+
         return "/admin/readMember.xhtml";
     }
 
     public String memberUpdatePage(Member member) {
-        LOG.info("Inside memberUpdatePage with " + member.toString());
+        LOG.info("Inside memberUpdatePage with " + this.member.toString());
 
         this.member = member;
+
+        LOG.info("Leaving memberUpdatePage with " + this.member);
 
         return "/admin/updateMember.xhtml";
     }
@@ -61,6 +67,8 @@ public class MemberController {
 
         this.member = member;
 
+        LOG.info("Leaving memberDeletePage with " + this.member);
+
         return "/admin/deleteMember.xhtml";
     }
 
@@ -68,7 +76,7 @@ public class MemberController {
         CRUD METHODS
     */
     public String executeMemberUpdate() {
-        LOG.info("Inside executeMemberUpdate with + " + this.member.toString());
+        LOG.info("Inside executeMemberUpdate with " + this.member.toString());
 
         memberService.updateMember(member);
 
@@ -76,13 +84,16 @@ public class MemberController {
     }
 
     public String executeMemberDelete() {
-        LOG.info("Inside executeMemberDelete with + " + this.member.toString());
+        LOG.info("Inside executeMemberDelete with " + this.member.toString());
 
         memberService.deleteMember(member);
 
         return "/admin/welcome.xhtml?faces-redirect=true";
     }
 
+    /*
+        GETTERS SETTERS
+    */
     public Member getMember() {
         return member;
     }

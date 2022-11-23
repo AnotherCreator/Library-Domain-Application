@@ -28,15 +28,42 @@ public class MemberService extends AbstractService<Member> {
     }
 
     public void updateMember(Member member) {
-//        Member memberReference = em.getReference(Member.class, member.getID());
-//
-//        memberReference.setIsExpired(member.getIsExpired());
-//
-//        em.merge(memberReference);
+        LOG.info("Inside MemberService.updateMember with " + em.createQuery(
+                        "SELECT m FROM Member m WHERE m.firstName LIKE :memberFirstName " +
+                                "AND m.lastName LIKE :memberLastName", Member.class)
+                .setParameter("memberFirstName", member.getFirstName())
+                .setParameter("memberLastName", member.getLastName())
+                .getSingleResult());
+
+        Member memberReference = em.createQuery(
+                        "SELECT m FROM Member m WHERE m.firstName LIKE :memberFirstName " +
+                                "AND m.lastName LIKE :memberLastName", Member.class)
+                .setParameter("memberFirstName", member.getFirstName())
+                .setParameter("memberLastName", member.getLastName())
+                .getSingleResult();
+
+        memberReference.setAddress(member.getAddress());
+        memberReference.setPhone(member.getPhone());
+        memberReference.setIsExpired(member.getIsExpired());
+        memberReference.setMemberType(member.getMemberType());
+
+        em.merge(memberReference);
     }
 
     public void deleteMember(Member member) {
-        Member memberReference = em.getReference(Member.class, member.getID());
+        LOG.info("Inside MemberService.deleteMember with " + em.createQuery(
+                        "SELECT m FROM Member m WHERE m.firstName LIKE :memberFirstName " +
+                                "AND m.lastName LIKE :memberLastName", Member.class)
+                .setParameter("memberFirstName", member.getFirstName())
+                .setParameter("memberLastName", member.getLastName())
+                .getSingleResult());
+
+        Member memberReference = em.createQuery(
+                        "SELECT m FROM Member m WHERE m.firstName LIKE :memberFirstName " +
+                                "AND m.lastName LIKE :memberLastName", Member.class)
+                .setParameter("memberFirstName", member.getFirstName())
+                .setParameter("memberLastName", member.getLastName())
+                .getSingleResult();
 
         em.remove(memberReference);
     }
