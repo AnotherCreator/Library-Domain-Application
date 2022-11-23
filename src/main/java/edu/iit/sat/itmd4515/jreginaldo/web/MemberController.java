@@ -30,35 +30,57 @@ public class MemberController {
     }
 
     /*
-        CRUD METHOD IMPLEMENTATION FOR WEB VIEW
+        PAGE DISPLAYS
     */
-    public String memberReadPage(Member member) {
-        LOG.info("Inside memberReadPage with " + member.toString());
-        this.member = member;
-
-        return "/admin/readMember.xhtml";
-    }
-
-    public String memberEditPage(Member member) {
-        LOG.info("Inside memberEditPage with " + member.toString());
-        this.member = member;
-
-        return "/admin/editMember.xhtml";
-    }
-
-    public String memberDeletePage(Member member) {
-        LOG.info("Inside memberEditPage with " + member.toString());
-        this.member = member;
-
-        return "/admin/deleteMember.xhtml";
-    }
-
     public String saveMember() {
         LOG.info("Inside saveMember with " + this.member.toString());
 
         memberService.create(member);
 
         return "/create/newMember/memberConfirmation.xhtml";
+    }
+
+    public String memberReadPage(Member member) {
+        LOG.info("Inside memberReadPage with " + member.toString());
+
+        this.member = member;
+
+        return "/admin/readMember.xhtml";
+    }
+
+    public String memberUpdatePage(Member member) {
+        LOG.info("Inside memberUpdatePage with " + member.toString());
+
+        this.member = member;
+
+        return "/admin/updateMember.xhtml";
+    }
+
+    public String memberDeletePage(Member member) {
+        LOG.info("Inside memberDeletePage with " + member.toString());
+
+        this.member = member;
+
+        return "/admin/deleteMember.xhtml";
+    }
+
+    /*
+        CRUD METHODS
+    */
+    public String executeMemberUpdate() {
+        LOG.info("Inside executeMemberUpdate with + " + this.member.toString());
+
+        memberService.updateMember(member);
+
+        return "/admin/welcome.xhtml?faces-redirect=true";
+    }
+
+    public String executeMemberDelete() {
+        LOG.info("Inside executeMemberDelete with + " + this.member.toString());
+
+        memberService.deleteMember(member);
+
+        return "/admin/welcome.xhtml?faces-redirect=true";
     }
 
     public Member getMember() {
