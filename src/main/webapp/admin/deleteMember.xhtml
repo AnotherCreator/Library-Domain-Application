@@ -9,12 +9,11 @@
     xmlns:ezcomp="http://xmlns.jcp.org/jsf/composite/ezcomp"
     template="../WEB-INF/templates/pageTemplate.xhtml">
 
-  <ui:define name="title">
-    <title>Member Delete Page</title>
-  </ui:define>
+  <ui:define name="title">DELETE MEMBER PAGE</ui:define>
   <ui:define name="content">
     <h1 class="text-center">DELETE MEMBER</h1>
     <ezcomp:member operation="delete"
+                   action="#{memberController.executeMemberDelete()}"
                    member="#{memberController.member}"/>
   </ui:define>
 </ui:composition>

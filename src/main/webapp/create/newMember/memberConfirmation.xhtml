@@ -8,36 +8,36 @@
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
     template="../../WEB-INF/templates/pageTemplate.xhtml">
 
-  <ui:define name="title">Welcome, #{loginController.authenticatedUser}</ui:define>
-
-  <ui:define name="title">
-    <title>Confirmation Page</title>
-  </ui:define>
+  <ui:define name="title">CONFIRMATION PAGE</ui:define>
   <ui:define name="content">
 
     <h1 class="text-center">NEW MEMBER INFORMATION</h1>
     <h4 class="text-center text-bg-success">Successfully Registered!</h4>
-    <h:dataTable class="table table-striped" value="#{memberController.member}">
+    <h:dataTable class="table table-striped" value="#{memberController.member}" var="member">
       <!-- NEW MEMBER DISPLAY INFO -->
       <h:column>
+        <f:facet name="header"><h:outputText value="Member ID"/></f:facet>
+        <h:outputText value="#{member.ID}" />
+      </h:column>
+      <h:column>
         <f:facet name="header"><h:outputText value="First Name"/></f:facet>
-        <h:outputText value="#{memberController.member.firstName}" />
+        <h:outputText value="#{member.firstName}" />
       </h:column>
       <h:column>
         <f:facet name="header"><h:outputText value="Last Name"/></f:facet>
-        <h:outputText value="#{memberController.member.lastName}" />
+        <h:outputText value="#{member.lastName}" />
       </h:column>
       <h:column>
         <f:facet name="header"><h:outputText value="Phone"/></f:facet>
-        <h:outputText value="#{memberController.member.phone}" />
+        <h:outputText value="#{member.phone}" />
       </h:column>
       <h:column>
         <f:facet name="header"><h:outputText value="Address"/></f:facet>
-        <h:outputText value="#{memberController.member.address}" />
+        <h:outputText value="#{member.address}" />
       </h:column>
       <h:column>
         <f:facet name="header"><h:outputText value="Card Status"/></f:facet>
-        <h:outputText value="#{memberController.member.isExpired == 0 ? 'Valid Card' : 'Expired Card'}" />
+        <h:outputText value="#{member.isExpired == 0 ? 'Valid Card' : 'Expired Card'}" />
       </h:column>
       <h:column>
         <f:facet name="header"><h:outputText value="Member Type"/></f:facet>
@@ -47,8 +47,8 @@
         else (Staff Card Holder)
         -->
         <h:outputText
-            value="#{memberController.member.memberType == 0 ? 'Resident Card Holder' :
-            memberController.member.memberType == 1 ? 'Non-Resident Card Holder' : 'Staff Card Holder'}"/>
+            value="#{member.memberType == 0 ? 'Resident Card Holder' :
+            member.memberType == 1 ? 'Non-Resident Card Holder' : 'Staff Card Holder'}"/>
       </h:column>
     </h:dataTable>
     <br/>
