@@ -2,6 +2,11 @@
 <web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+    <mime-mapping>
+        <extension>jsp <!--{or the extension of file}--></extension>
+        <mime-type>text/html</mime-type>
+    </mime-mapping>
+
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
