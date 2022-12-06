@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"edu.iit.sat.itmd4515.jreginaldo.config"},{"l":"edu.iit.sat.itmd4515.jreginaldo.domain"},{"l":"edu.iit.sat.itmd4515.jreginaldo.security"},{"l":"edu.iit.sat.itmd4515.jreginaldo.service"},{"l":"edu.iit.sat.itmd4515.jreginaldo.web"}]
