@@ -83,7 +83,7 @@ public class MemberController {
     public String executeMemberDelete() {
         LOG.info("Inside executeMemberDelete with " + this.member.toString());
 
-//        memberService.deleteMember(member);
+        memberService.deleteMember(member);
 
         return "/admin/welcome.xhtml?faces-redirect=true";
     }

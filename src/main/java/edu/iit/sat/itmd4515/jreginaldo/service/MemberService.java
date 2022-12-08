@@ -48,20 +48,10 @@ public class MemberService extends AbstractService<Member> {
     }
 
     public void deleteMember(Member member) {
-        LOG.info("Inside MemberService.deleteMember with " + em.createQuery(
-                        "SELECT m FROM Member m WHERE m.firstName LIKE :memberFirstName " +
-                                "AND m.lastName LIKE :memberLastName", Member.class)
-                .setParameter("memberFirstName", member.getFirstName())
-                .setParameter("memberLastName", member.getLastName())
-                .getSingleResult());
+        Member m = findByID(member);
 
-        Member memberReference = em.createQuery(
-                        "SELECT m FROM Member m WHERE m.firstName LIKE :memberFirstName " +
-                                "AND m.lastName LIKE :memberLastName", Member.class)
-                .setParameter("memberFirstName", member.getFirstName())
-                .setParameter("memberLastName", member.getLastName())
-                .getSingleResult();
+        LOG.info("Inside MemberService.deleteMember with " + findByID(member).toString());
 
-        em.remove(memberReference);
+        em.remove(m);
     }
 }
