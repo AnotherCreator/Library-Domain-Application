@@ -69,12 +69,12 @@ public class StartupSampleDataService {
         LOG.info("Inside StartupSampleDataService.postConstruct method");
 
         // Non-employee user with single group
-        Member m = new Member("Member Non Employee Fname", "Member Non Employee Lname",
+        Member m = new Member(1L,"Member Non Employee Fname", "Member Non Employee Lname",
                 "111-111-1111", "111 Ocean Drive", 0, 0);
         m.setUser(member); // Non-Employee
 
         // Employee user with both member + employee group
-        Member m1 = new Member("Member1 Employee Fname", "Member1 Employee Lname",
+        Member m1 = new Member(2L, "Member1 Employee Fname", "Member1 Employee Lname",
                 "111-111-1111", "111 Ocean Drive", 2, 0);
         // Members will only be able to see the member menu when logging in as MEMBER_ROLE despite being an employee
         m1.setUser(member1);

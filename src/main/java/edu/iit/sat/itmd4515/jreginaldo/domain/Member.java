@@ -22,8 +22,9 @@ public class Member {
 
     }
 
-    public Member(String firstName, String lastName, String phone, String address, Integer memberType,
+    public Member(Long ID, String firstName, String lastName, String phone, String address, Integer memberType,
                   Integer isExpired) {
+        this.ID = ID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phone = phone;

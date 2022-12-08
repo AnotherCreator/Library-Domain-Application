@@ -15,6 +15,17 @@
 <cc:implementation>
   <h:form>
     <h:panelGroup layout="block" styleClass="mb-3">
+      <h:outputLabel for="ID"
+                     value="Member ID"
+                     styleClass="form-label"/>
+      <h:inputText id="ID"
+                   p:placeholder="Member ID"
+                   styleClass="form-control"
+                   value="#{cc.attrs.member.ID}"/>
+      <h:messages for="ID"/>
+    </h:panelGroup>
+    <br/>
+    <h:panelGroup layout="block" styleClass="mb-3">
       <h:outputLabel for="firstName"
                      value="First Name"
                      styleClass="form-label"/>

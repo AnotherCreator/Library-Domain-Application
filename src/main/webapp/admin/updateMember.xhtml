@@ -13,7 +13,7 @@
   <ui:define name="content">
     <h1 class="text-center">EDIT MEMBER INFORMATION</h1>
     <ezcomp:member operation="update"
-                   action="#{memberController.executeMemberUpdate()}"
-                   member="#{memberController.member}"/>
+                   member="#{memberController.member}"
+                   action="#{memberController.executeMemberUpdate()}"/>
   </ui:define>
 </ui:composition>

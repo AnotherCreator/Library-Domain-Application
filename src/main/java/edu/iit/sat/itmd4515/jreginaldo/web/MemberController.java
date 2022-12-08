@@ -53,7 +53,7 @@ public class MemberController {
     }
 
     public String memberUpdatePage(Member member) {
-        LOG.info("Inside memberUpdatePage with " + this.member.toString());
+        LOG.info("Inside memberUpdatePage with " + member.toString());
 
         this.member = member;
 
@@ -72,13 +72,10 @@ public class MemberController {
         return "/admin/deleteMember.xhtml";
     }
 
-    /*
-        CRUD METHODS
-    */
     public String executeMemberUpdate() {
         LOG.info("Inside executeMemberUpdate with " + this.member.toString());
 
-        memberService.updateMember(member);
+        memberService.updateMember(this.member);
 
         return "/admin/welcome.xhtml?faces-redirect=true";
     }
@@ -86,7 +83,7 @@ public class MemberController {
     public String executeMemberDelete() {
         LOG.info("Inside executeMemberDelete with " + this.member.toString());
 
-        memberService.deleteMember(member);
+//        memberService.deleteMember(member);
 
         return "/admin/welcome.xhtml?faces-redirect=true";
     }

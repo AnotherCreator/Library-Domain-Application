@@ -14,7 +14,7 @@ public class MemberRelationshipTest extends AbstractJPATest{
             1:N relationship (Bi-directional)
             Member(Owned) <--> Checkout(Owner)
         */
-        Member member = new Member("Ocean", "Man", "111-111-1111", "111 Ocean Drive",
+        Member member = new Member(1L,"Ocean", "Man", "111-111-1111", "111 Ocean Drive",
                 0, 0);
 
         /*
@@ -60,7 +60,7 @@ public class MemberRelationshipTest extends AbstractJPATest{
         1:1 Relationship (Uni-Directional)
         Member --> Employee
         */
-        Member member = new Member("Water", "Man", "111-111-1111", "111 Ocean Drive",
+        Member member = new Member(1L,"Water", "Man", "111-111-1111", "111 Ocean Drive",
                 0, 0);
 
         Employee employee = new Employee("Lifeguard", "Atlantic",

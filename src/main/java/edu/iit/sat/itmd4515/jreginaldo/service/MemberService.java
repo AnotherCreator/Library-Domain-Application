@@ -27,27 +27,24 @@ public class MemberService extends AbstractService<Member> {
                 .setParameter("username", username).getSingleResult();
     }
 
+    public Member findByID(Member member) {
+        return em.find(Member.class, member.getID());
+    }
+
     public void updateMember(Member member) {
-        LOG.info("Inside MemberService.updateMember with " + em.createQuery(
-                        "SELECT m FROM Member m WHERE m.firstName LIKE :memberFirstName " +
-                                "AND m.lastName LIKE :memberLastName", Member.class)
-                .setParameter("memberFirstName", member.getFirstName())
-                .setParameter("memberLastName", member.getLastName())
-                .getSingleResult());
+        Member m = findByID(member);
 
-        Member memberReference = em.createQuery(
-                        "SELECT m FROM Member m WHERE m.firstName LIKE :memberFirstName " +
-                                "AND m.lastName LIKE :memberLastName", Member.class)
-                .setParameter("memberFirstName", member.getFirstName())
-                .setParameter("memberLastName", member.getLastName())
-                .getSingleResult();
+        LOG.info("Inside MemberService.updateMember with " + m.toString());
 
-        memberReference.setAddress(member.getAddress());
-        memberReference.setPhone(member.getPhone());
-        memberReference.setIsExpired(member.getIsExpired());
-        memberReference.setMemberType(member.getMemberType());
+        m.setID(member.getID());
+        m.setFirstName(member.getFirstName());
+        m.setLastName(member.getLastName());
+        m.setAddress(member.getAddress());
+        m.setPhone(member.getPhone());
+        m.setIsExpired(member.getIsExpired());
+        m.setMemberType(member.getMemberType());
 
-        em.merge(memberReference);
+        em.merge(m);
     }
 
     public void deleteMember(Member member) {
