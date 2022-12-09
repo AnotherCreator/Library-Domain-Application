@@ -48,8 +48,8 @@
                else (Staff Card Holder)
             -->
             <h:outputText
-                value="#{member.memberType == 0 ? 'Resident Card Holder' :
-            member.memberType == 1 ? 'Non-Resident Card Holder' : 'Staff Card Holder'}"/>
+                    value="#{member.memberType == 0 ? 'Resident Card Holder' :
+               member.memberType == 1 ? 'Non-Resident Card Holder' : 'Staff Card Holder'}"/>
          </h:column>
          <h:column>
             <f:facet name="header"><h:outputText value="Expired"/></f:facet>
@@ -58,9 +58,9 @@
          <!-- MEMBER CRUD INFO -->
          <h:column>
             <h:form>
-               <h:commandLink value="READ "/>
-               <h:commandLink value="UPDATE "/>
-               <h:commandLink value="DELETE "/>
+               <h:commandLink value="READ " action="#{memberController.memberReadPage(member)}"/>
+               <h:commandLink value="UPDATE " action="#{memberController.memberUpdatePage(member)}"/>
+               <h:commandLink value="DELETE " action="#{memberController.memberDeletePage(member)}"/>
             </h:form>
          </h:column>
       </h:dataTable>

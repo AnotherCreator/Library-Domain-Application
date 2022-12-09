@@ -35,6 +35,8 @@ public class MemberWelcomeController {
         member = memberService.findByUsername(loginController.getAuthenticatedUser());
     }
 
+
+
     public Member getMember() {
         return member;
     }
