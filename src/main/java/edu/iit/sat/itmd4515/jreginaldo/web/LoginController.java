@@ -43,6 +43,9 @@ public class LoginController {
     }
 
     public String getAuthenticatedUser() {
+        LOG.info("Inside LoginController.getAuthenticatedUser with: "
+                + facesContext.getExternalContext().getRemoteUser());
+
         return facesContext.getExternalContext().getRemoteUser();
     }
 
