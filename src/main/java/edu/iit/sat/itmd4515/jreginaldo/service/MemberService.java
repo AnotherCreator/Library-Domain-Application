@@ -34,7 +34,7 @@ public class MemberService extends AbstractService<Member> {
     public void updateMember(Member member) {
         Member m = findByID(member);
 
-        LOG.info("Inside MemberService.updateMember with " + m.toString());
+        LOG.info("Inside MemberService.updateMember with Member.ID: " + m.getID());
 
         m.setID(member.getID());
         m.setFirstName(member.getFirstName());
@@ -45,6 +45,8 @@ public class MemberService extends AbstractService<Member> {
         m.setMemberType(member.getMemberType());
 
         em.merge(m);
+
+        LOG.info("Successfully updated member with " + m);
     }
 
     public void deleteMember(Member member) {
