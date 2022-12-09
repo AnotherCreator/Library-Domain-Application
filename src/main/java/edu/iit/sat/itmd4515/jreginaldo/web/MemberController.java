@@ -47,8 +47,6 @@ public class MemberController {
 
         this.member = member;
 
-        LOG.info("Leaving memberReadPage with " + this.member);
-
         return "/admin/readMember.xhtml";
     }
 
@@ -56,8 +54,6 @@ public class MemberController {
         LOG.info("Inside memberUpdatePage with " + member.toString());
 
         this.member = member;
-
-        LOG.info("Leaving memberUpdatePage with " + this.member);
 
         return "/admin/updateMember.xhtml";
     }
@@ -67,10 +63,15 @@ public class MemberController {
 
         this.member = member;
 
-        LOG.info("Leaving memberDeletePage with " + this.member);
-
         return "/admin/deleteMember.xhtml";
     }
+
+    public String executeMemberReturnHome() {
+        LOG.info("Inside executeMemberReturnHome");
+
+        return "/admin/welcome.xhtml?faces-redirect=true";
+    }
+
 
     public String executeMemberUpdate() {
         LOG.info("Inside executeMemberUpdate with " + this.member.toString());
@@ -83,7 +84,7 @@ public class MemberController {
     public String executeMemberDelete() {
         LOG.info("Inside executeMemberDelete with " + this.member.toString());
 
-        memberService.deleteMember(member);
+        memberService.deleteMember(this.member);
 
         return "/admin/welcome.xhtml?faces-redirect=true";
     }

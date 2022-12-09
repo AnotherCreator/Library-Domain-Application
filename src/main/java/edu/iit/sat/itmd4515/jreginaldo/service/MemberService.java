@@ -52,7 +52,7 @@ public class MemberService extends AbstractService<Member> {
     public void deleteMember(Member member) {
         Member m = findByID(member);
 
-        LOG.info("Inside MemberService.deleteMember with " + findByID(member).toString());
+        LOG.info("Inside MemberService.deleteMember with " + m.toString());
 
         em.remove(m);
     }

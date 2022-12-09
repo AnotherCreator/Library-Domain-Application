@@ -13,6 +13,7 @@
   <ui:define name="content">
     <h1 class="text-center">MEMBER INFORMATION</h1>
     <ezcomp:member operation="read"
+                   action="#{memberController.executeMemberReturnHome()}"
                    member="#{memberController.member}"/>
   </ui:define>
 </ui:composition>

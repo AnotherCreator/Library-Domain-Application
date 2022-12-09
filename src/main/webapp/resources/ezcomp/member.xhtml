@@ -21,7 +21,7 @@
       <h:inputText id="ID"
                    p:placeholder="Member ID"
                    styleClass="form-control"
-                   value="#{cc.attrs.member.ID}"/>
+                   value="#{cc.attrs.member.ID}" readonly="#{cc.attrs.operation.equalsIgnoreCase('create')}"/>
       <h:messages for="ID"/>
     </h:panelGroup>
     <br/>
@@ -95,6 +95,13 @@
       </h:selectOneMenu>
     </h:panelGroup>
     <br/>
+
+    <!--  RENDER IF <ezcomp:member> 'operation' == 'read'  -->
+    <h:commandButton
+            rendered="#{cc.attrs.operation.equalsIgnoreCase('read')}"
+            styleClass="btn btn-primary btn-lg btn-block"
+            value="Return"
+            action="#{cc.attrs.action}"/>
 
     <!--  RENDER IF <ezcomp:member> 'operation' == 'create'  -->
     <h:commandButton
