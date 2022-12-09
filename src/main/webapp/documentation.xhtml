@@ -67,13 +67,81 @@
         <br/>
         <h2>Runtime</h2>
         <h5>Sample Test Script</h5>
+        <h5>Admin: Create Member</h5>
+        <ul>
+            <li>Login with user/password: admin </li>
+            <li>Navigate to "Create Member" page on top nav bar</li>
+            <li>Fill in the form with desired information (Member ID field will be read only and auto-generated)</li>
+            <li>Click "Create Member" button</li>
+            <li>A "Confirmation" page should show with the newly included member entity</li>
+            <li>Navigate back "Admin" page to access data manipulation commands</li>
+        </ul>
+        <h5>Admin: Read Member</h5>
+        <ul>
+            <li>Login with user/password: admin </li>
+            <li>Navigate to "Create Member" page on top nav bar</li>
+            <li>Create a new entity using steps from "Admin: Create Member" or refer to existing data set</li>
+            <li>Select "READ" on desired entity</li>
+            <li>A new page called "Member Information" will appear with the entity data filled into its respective fields</li>
+        </ul>
+        <h5>Admin: "Successful" Update Member</h5>
+        <ul>
+            <li>Login with user/password: admin </li>
+            <li>Navigate to "Create Member" page on top nav bar</li>
+            <li>Create a new entity using steps from "Admin: Create Member" or refer to existing data set</li>
+            <li>Select "UPDATE" on desired entity</li>
+            <li>A new page called "Edit Member Information" will appear with the entity data filled into its respective fields</li>
+            <li>Without editing the ID, change any desired fields to be updated</li>
+            <li>After clicking the "Update Member" button, you will return to the "Admin" page with the updated entity data</li>
+        </ul>
+        <h5>Admin: "Successful" Delete Member</h5>
+        <ul>
+            <li>Login with user/password: admin </li>
+            <li>Navigate to "Create Member" page on top nav bar</li>
+            <li>Create a new entity using steps from "Admin: Create Member" or refer to existing data set</li>
+            <li>Select "DELETE" on desired entity</li>
+            <li>A new page called "Delete Member" will appear with the entity data filled into its respective fields</li>
+            <li>Without editing the ID, clicking the "Delete Member" button will remove the entity from the database</li>
+            <li>After clicking the "Delete Member" button, you will return to the "Admin" page with the updated database data</li>
+        </ul>
 
-        <h5>Expected Results / Known Issues</h5>
+        <h5>Admin: "Un-successful" CRUD Operations</h5>
+        <ul>
+            <li> </li>
+            <li> </li>
+        </ul>
+        <h5>Expected Results</h5>
+        <ul>
+            <li> </li>
+        </ul>
+        <h5>Known Isssues</h5>
+        <ul>
+            <li>(Server Side) Updating Member Info: </li>
+            <li>(Client Side) Upating Member Info: Since the ID can be manually changed,
+                the user can mistakenly update another member's info</li>
 
+            <li>(Server Side) Deleting Member Info: </li>
+            <li>(Client Side) Deleting Member Info: Since the ID can be manually changed,
+                the user can mistakenly delete another member's entity</li>
+        </ul>
         <br/>
+
         <h2>Screen Captures</h2>
-
+        <h5>Successful Server Start: </h5>
+        <h:graphicImage url="resources/images/login_page.png"/>
+        <h5>Successful "Admin" Login: </h5>
+        <h:graphicImage url="resources/images/admin_login.png"/>
+        <h5>Admin Database View: </h5>
+        <h:graphicImage url="resources/images/admin_view.png"/>
+        <h5>Successful "Admin" Member Create: </h5>
+        <h:graphicImage url="resources/images/admin_create.png"/>
+        <h5>Successful "Admin" Member Update: </h5>
+        <h:graphicImage url="resources/images/admin_update.png"/>
+        <h5>Successful "Admin" Member Delete: </h5>
+        <h:graphicImage url="resources/images/admin_delete.png"/>
         <br/>
+        <br/>
+
         <h2>Development Insights</h2>
         <h5>Things I Learned</h5>
         <ul>
