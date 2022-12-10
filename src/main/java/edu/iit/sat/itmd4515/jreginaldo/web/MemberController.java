@@ -39,7 +39,7 @@ public class MemberController {
 
         memberService.create(member);
 
-        return "/data/newMember/memberConfirmation.xhtml";
+        return "/data/manageMember/memberConfirmation.xhtml";
     }
 
     public String memberReadPage(Member member) {
@@ -47,7 +47,7 @@ public class MemberController {
 
         this.member = member;
 
-        return "/data/readMember.xhtml";
+        return "/data/manageMember/readMember.xhtml";
     }
 
     public String memberUpdatePage(Member member) {
@@ -55,7 +55,7 @@ public class MemberController {
 
         this.member = member;
 
-        return "/data/updateMember.xhtml";
+        return "/data/manageMember/updateMember.xhtml";
     }
 
     public String memberDeletePage(Member member) {
@@ -63,7 +63,7 @@ public class MemberController {
 
         this.member = member;
 
-        return "/data/deleteMember.xhtml";
+        return "/data/manageMember/deleteMember.xhtml";
     }
 
     public String executeMemberReturnHome() {
