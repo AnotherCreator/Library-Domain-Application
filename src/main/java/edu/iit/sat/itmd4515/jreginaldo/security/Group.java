@@ -25,7 +25,6 @@ public class Group {
     */
     @Id
     private String groupName;
-
     private String groupDesc;
     // User (Owner) -- Group (Owned)
 
@@ -59,12 +58,12 @@ public class Group {
         this.users = users;
     }
 
-    @Override
-    public String toString() {
-        return "Group{" +
-                "groupName='" + groupName + '\'' +
-                ", groupDesc='" + groupDesc + '\'' +
-                ", users=" + users +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Group{" +
+//                "groupName='" + groupName + '\'' +
+//                ", groupDesc='" + groupDesc + '\'' +
+//                ", users=" + users +
+//                '}';
+//    }
 }
