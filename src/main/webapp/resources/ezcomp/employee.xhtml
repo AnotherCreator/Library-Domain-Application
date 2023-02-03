@@ -7,52 +7,6 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <cc:interface>
-    <cc:attribute name="operation" type="java.lang.String" required="true" />
-    <cc:attribute name="member" type="edu.iit.sat.itmd4515.jreginaldo.domain.Member" required="true" />
-    <cc:attribute name="action" required="false" method-signature="java.lang.String action()"/>
-</cc:interface>
-
-<cc:implementation>
-    <h:form>
-        <!--  RENDER IF <ezcomp:member> 'operation' == 'read'  -->
-        <h:commandButton
-                rendered="#{cc.attrs.operation.equalsIgnoreCase('read')}"
-                styleClass="btn btn-primary btn-lg btn-block"
-                value="Return"
-                action="#{cc.attrs.action}"/>
-
-        <!--  RENDER IF <ezcomp:member> 'operation' == 'create'  -->
-        <h:commandButton
-                rendered="#{cc.attrs.operation.equalsIgnoreCase('create')}"
-                styleClass="btn btn-primary btn-lg btn-block"
-                value="Create Member"
-                action="#{cc.attrs.action}"/>
-
-        <!--  RENDER IF <ezcomp:member> 'operation' == 'update'  -->
-        <h:commandButton
-                rendered="#{cc.attrs.operation.equalsIgnoreCase('update')}"
-                styleClass="btn btn-primary btn-lg btn-block"
-                value="Update Member"
-                action="#{cc.attrs.action}"/>
-
-        <!--  RENDER IF <ezcomp:member> 'operation' == 'delete'  -->
-        <h:commandButton
-                rendered="#{cc.attrs.operation.equalsIgnoreCase('delete')}"
-                styleClass="btn btn-primary btn-lg btn-block"
-                value="Delete Member"
-                action="#{cc.attrs.action}"/>
-    </h:form>
-</cc:implementation>
-</html>
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
-      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-
-<cc:interface>
   <cc:attribute name="operation" type="java.lang.String" required="true" />
   <cc:attribute name="employee" type="edu.iit.sat.itmd4515.jreginaldo.domain.Employee" required="true" />
   <cc:attribute name="action" required="false" method-signature="java.lang.String action()"/>
