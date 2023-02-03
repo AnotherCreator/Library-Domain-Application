@@ -32,17 +32,29 @@
             <li>I have also utilized the built in template functionality by JSF. In this project, referenced by
                 the demos in the lectures, I have included the "ui:composition" tags and "ezcomp" templates when
                 appropriate.</li>
+            <li>For functionality for browsing, finding, and selecting entities, I have added render-only attributes on
+            various html elements and utilized the web.xml security constraints to allow certain users access to their
+            respective directories.</li>
             <li>In order to make navigation familiar and easy, I have also included the basic Bootstrap template for a
             fixed navigation pane at the top. Depending on user credentials, certain links may omitted.</li>
             <li>For member infomation stored in the database, employees and admins are able to read, create, update, and
             delete information stored in the database.</li>
+            <li>I have added various LOG.info statements where data is being passed along to other pages / functions when
+            the user is manipulating user data</li>
+            <li>I have added one user from each group to demonstrate their permissions and seperate web views.</li>
             <li>The various information currently displayed on the website is also formatted in a list view.</li>
+        </ul>
+        <br/>
+
+        <h2>Design</h2>
+        <ul>
+            <li>(Admin / Employee) Functionality: Allow CRUD operations of member entities</li>
+            <li>Navigation Flow: After using any CRUD operations, the user will automatically be redirected to the initial
+            welcome page after logging in. From there, the user will have to navigate using the top navbar.</li>
         </ul>
 
         <br/>
-        <h2>Design</h2>
 
-        <br/>
         <h2>Installation</h2>
         <h5>Required Programs:</h5>
         <h5>Java IDE</h5>
@@ -61,10 +73,49 @@
         <h5>Payara</h5>
         <ul><li>
             <a href="https://www.payara.fish/downloads/payara-platform-community-edition/">Payara Server 5.2022.4(Full)</a>
+            <a href="https://plugins.jetbrains.com/plugin/15114-payara-platform-tools/payara-server">IntelliJ Payara Plugin</a>
         </li></ul>
-        <h5>Set-up:</h5>
-
         <br/>
+
+        <h5>Set-up (IntelliJ):</h5>
+        <h5>Project Set-up:</h5>
+        <ul>
+            <li>Install IntelliJ</li>
+            <li>Create new project using the "Jakarta EE" generator</li>
+            <li>Input name</li>
+            <li>Choose file location</li>
+            <li>Template: Web Application</li>
+            <li>App Server: Locate your Payara install</li>
+            <li>Language: Java</li>
+            <li>Build system: Maven</li>
+            <li>Group and Artifact can stay default if not specified</li>
+            <li>JDK: Temurin</li>
+        </ul>
+        <h5>Run Configuration:</h5>
+        <ul>
+            <li>Navigate to "File" > "Settings" > "Plugins"</li>
+            <li>Install the plugin "Payara Platform Tools"</li>
+            <li>Restarted IDE if needed</li>
+            <li>Navigate to "Run" > "Edit Configurations"</li>
+            <li>A new window should appear with no run configs on the left</li>
+            <li>Click the "+" on the top left of the pop-up window</li>
+            <li>Navigate the list of new configs until "Payara Server - Local" appears</li>
+            <li>Select "Payara Server - Local"</li>
+        </ul>
+        <h5>Setting Up Payara Server:</h5>
+        <ul>
+            <li>Select desired browser to open after running project</li>
+            <li>URL should default to project name</li>
+            <li>Select Temurin as "JRE"</li>
+            <li>Leave "Server Domain" as default value</li>
+            <li>Adjust Username / Password to your respective settings</li>
+            <li>On the "Before Launch" window, click the "+" sign</li>
+            <li>Select "Build Artifacts"</li>
+            <li>Choose "Project Name:war explosed" artifact</li>
+        </ul>
+        <h5>The Project Should Now Be Able to Run Using A Local Payara Server</h5>
+        <br/>
+
         <h2>Runtime</h2>
         <h5>Sample Test Script</h5>
         <h5>Admin: Create Member</h5>
@@ -106,33 +157,30 @@
             <li>After clicking the "Delete Member" button, you will return to the "Admin" page with the updated database data</li>
         </ul>
 
-        <h5>Expected Results</h5>
-        <ul>
-            <li> </li>
-        </ul>
         <h5>Known Isssues</h5>
         <ul>
             <li>(Client Side) Upating Member Info: Since the ID can be manually changed,
                 the user can mistakenly update another member's info</li>
-
             <li>(Client Side) Deleting Member Info: Since the ID can be manually changed,
                 the user can mistakenly delete another member's entity</li>
+            <li>(Client Side) Phone Inputs: Users will be able to input any character in whatever style they choose.</li>
         </ul>
         <br/>
 
         <h2>Screen Captures</h2>
         <h5>Successful Server Start: </h5>
-        <h:graphicImage url="resources/images/login_page.png"/>
+        <h:graphicImage url="resources/images/img.png"/>
         <h5>Successful "Admin" Login: </h5>
-        <h:graphicImage url="resources/images/admin_login.png"/>
+        <h:graphicImage url="resources/images/img_1.png"/>
         <h5>Admin Database View: </h5>
-        <h:graphicImage url="resources/images/admin_view.png"/>
+        <h:graphicImage url="resources/images/img_2.png"/>
         <h5>Successful "Admin" Member Create: </h5>
-        <h:graphicImage url="resources/images/admin_create.png"/>
+        <h:graphicImage url="resources/images/img_3.png"/>
+        <h:graphicImage url="resources/images/img_4.png"/>
         <h5>Successful "Admin" Member Update: </h5>
-        <h:graphicImage url="resources/images/admin_update.png"/>
+        <h:graphicImage url="resources/images/img_6.png"/>
         <h5>Successful "Admin" Member Delete: </h5>
-        <h:graphicImage url="resources/images/admin_delete.png"/>
+        <h:graphicImage url="resources/images/img_5.png"/>
         <br/>
         <br/>
 

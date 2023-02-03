@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<cc:interface>
+  <cc:attribute name="operation" type="java.lang.String" required="true" />
+  <cc:attribute name="employee" type="edu.iit.sat.itmd4515.jreginaldo.domain.Employee" required="true" />
+  <cc:attribute name="action" required="false" method-signature="java.lang.String action()"/>
+</cc:interface>
+
+<cc:implementation>
+  <h:form>
+    <h:panelGroup layout="block" styleClass="mb-3">
+      <h:outputLabel for="ID"
+                     value="Employee ID"
+                     styleClass="form-label"/>
+      <h:inputText id="ID"
+                   p:placeholder="Employee ID"
+                   styleClass="form-control"
+                   value="#{cc.attrs.employee.ID}" readonly="#{cc.attrs.operation.equalsIgnoreCase('create')}"/>
+      <h:messages for="ID"/>
+    </h:panelGroup>
+    <br/>
+
+    <h:panelGroup layout="block" styleClass="mb-3">
+      <h:outputLabel value="Select Card Type" for="position"/>
+      <h:selectOneMenu id="position"
+                       value="#{cc.attrs.employee.position}"
+                       styleClass="form-control">
+        <f:selectItem itemValue="Human Resources" itemLabel="Human Resources"/>
+        <f:selectItem itemValue="Customer Services" itemLabel="Customer Service"/>
+        <f:selectItem itemValue="I.T. Help Desk" itemLabel="I.T. Help Desk"/>
+        <f:selectItem itemValue="Adult Librarian" itemLabel="Adult Librarian"/>
+        <f:selectItem itemValue="Teen Librarian" itemLabel="Teen Librarian"/>
+        <f:selectItem itemValue="Children's Librarian" itemLabel="Children's Librarian"/>
+        <f:selectItem itemValue="Computer Lab Assistant" itemLabel="Computer Lab Assistant"/>
+        <f:selectItem itemValue="Shelver" itemLabel="Shelver"/>
+      </h:selectOneMenu>
+    </h:panelGroup>
+    <br/>
+
+    <h:panelGroup layout="block">
+      <h:outputLabel value="Select Card Type" for="department"/>
+      <h:selectOneMenu id="department"
+                       value="#{cc.attrs.employee.department}"
+                       styleClass="form-control">
+        <f:selectItem itemValue="Information Technology" itemLabel="Information Technology"/>
+        <f:selectItem itemValue="Human Resources" itemLabel="Human Resources"/>
+        <f:selectItem itemValue="Customer Services" itemLabel="Customer Service"/>
+        <f:selectItem itemValue="Librarian" itemLabel="Librarian"/>
+        <f:selectItem itemValue="Shelver" itemLabel="Shelver"/>
+      </h:selectOneMenu>
+    </h:panelGroup>
+    <br/>
+    <br/>
+
+    <h:panelGroup layout="block" styleClass="mb-3">
+      <h:outputLabel for="dateStarted"
+                     value="Date Started"
+                     styleClass="form-label"/>
+      <h:inputText id="dateStarted"
+                   p:placeholder="Date Started"
+                   styleClass="form-control"
+                   value="#{cc.attrs.employee.started}"/>
+      <h:messages for="dateStarted"/>
+    </h:panelGroup>
+    <br/>
+
+    <h:panelGroup layout="block" styleClass="mb-3">
+      <h:outputLabel for="dateEnded"
+                     value="Date Ended"
+                     styleClass="form-label"/>
+      <h:inputText id="dateEnded"
+                   p:placeholder="Date Ended"
+                   styleClass="form-control"
+                   value="#{cc.attrs.employee.ended}"/>
+      <h:messages for="dateEnded"/>
+    </h:panelGroup>
+    <br/>
+
+    <!--  RENDER IF <ezcomp:employee> 'operation' == 'read'  -->
+    <h:commandButton
+            rendered="#{cc.attrs.operation.equalsIgnoreCase('read')}"
+            styleClass="btn btn-primary btn-lg btn-block"
+            value="Return"
+            action="#{cc.attrs.action}"/>
+
+    <!--  RENDER IF <ezcomp:employee> 'operation' == 'create'  -->
+    <h:commandButton
+        rendered="#{cc.attrs.operation.equalsIgnoreCase('create')}"
+        styleClass="btn btn-primary btn-lg btn-block"
+        value="Create Employee"
+        action="#{cc.attrs.action}"/>
+
+    <!--  RENDER IF <ezcomp:employee> 'operation' == 'update'  -->
+    <h:commandButton
+        rendered="#{cc.attrs.operation.equalsIgnoreCase('update')}"
+        styleClass="btn btn-primary btn-lg btn-block"
+        value="Update Employee"
+        action="#{cc.attrs.action}"/>
+
+    <!--  RENDER IF <ezcomp:employee> 'operation' == 'delete'  -->
+    <h:commandButton
+        rendered="#{cc.attrs.operation.equalsIgnoreCase('delete')}"
+        styleClass="btn btn-primary btn-lg btn-block"
+        value="Delete Employee"
+        action="#{cc.attrs.action}"/>
+  </h:form>
+</cc:implementation>
+</html>
