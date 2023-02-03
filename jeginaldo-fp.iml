@@ -47,7 +47,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../jsf-api-2.2.20.jar!/" />
+          <root url="jar://$USER_HOME$/jsf-api-2.2.20.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
